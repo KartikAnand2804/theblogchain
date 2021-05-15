@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from blog import views as blog_views
 from users import views as user_views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('', blog_views.index, name='index'),
@@ -25,4 +27,4 @@ urlpatterns = [
     path('contact/', blog_views.contact, name='contact'),
     path('category/', blog_views.about, name='category'),
     path('register/', user_views.register, name='register'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,11 +1,11 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Blogchain</title>
+    <title>TheBlogChain</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -23,103 +23,21 @@
     ================================================== -->
     <script src="{% static 'blog/js/modernizr.js' %}"></script>
     <script src="{% static 'blog/js/pace.min.js' %}"></script>
-    <script src="{% static 'blog/js/main.js' %}"></script>
-    <script src="{% static 'blog/js/plugins.js' %}"></script>
-    <script src="{% static 'blog/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'https://code.jquery.com/jquery-3.6.0.js' %}"></script>
     
+
     <!-- favicons
     ================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
 </head>
 
 <body id="top">
-    
+
     <!-- pageheader
     ================================================== -->
     <section class="s-pageheader s-pageheader--home">
-
-        <header class="header">
-            <div class="header__content row">
-
-                <div class="header__logo">
-                    <a class="logo" href="index.html">
-                        <img src="{% static 'blog/images/logo.png' %}" alt="Homepage">
-                    </a>
-                </div> <!-- end header__logo -->
-
-                <ul class="header__social">
-                    <li>
-                        <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="#0"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    </li>
-                </ul> <!-- end header__social -->
-
-                <a class="header__search-trigger" href="#0"></a>
-
-                <div class="header__search">
-
-                    <form role="search" method="get" class="header__search-form" action="#">
-                        <label>
-                            <span class="hide-content">Search for:</span>
-                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
-                        </label>
-                        <input type="submit" class="search-submit" value="Search">
-                    </form>
-        
-                    <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
-
-                </div>  <!-- end header__search -->
-
-
-                <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
-
-                <nav class="header__nav-wrap">
-
-                    <h2 class="header__nav-heading h6">Site Navigation</h2>
-
-                    <ul class="header__nav">
-                        <li class="current"><a href="" title="">Home</a></li>
-                        <li class="has-children">
-                            <a href="#0" title="">Categories</a>
-                            <ul class="sub-menu">
-                            <li><a href="category.html">Lifestyle</a></li>
-                            <li><a href="category.html">Health</a></li>
-                            <li><a href="category.html">Family</a></li>
-                            <li><a href="category.html">Management</a></li>
-                            <li><a href="category.html">Travel</a></li>
-                            <li><a href="category.html">Work</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-children">
-                            <a href="#0" title="">Blog</a>
-                            <ul class="sub-menu">
-                            <li><a href="single-video.html">Video Post</a></li>
-                            <li><a href="single-audio.html">Audio Post</a></li>
-                            <li><a href="single-gallery.html">Gallery Post</a></li>
-                            <li><a href="single-standard.html">Standard Post</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="style-guide.html" title="">Styles</a></li>
-                        <li><a href="about" title="">About</a></li>
-                        <li><a href="contact" title="">Contact</a></li>
-                    </ul> <!-- end header__nav -->
-
-                    <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
-
-                </nav> <!-- end header__nav-wrap -->
-
-            </div> <!-- header-content -->
-        </header> <!-- header -->
-
+        <header class="header"></header>
 
         <div class="pageheader-content row">
             <div class="col-full">
@@ -136,8 +54,7 @@
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="{% static 'blog/images/avatars/user-03.jpg' %}" 
-                                        alt="">
+                                        <img class="avatar" src="{% static 'blog/images/avatars/user-03.jpg' %}" alt="">
                                     </a>
 
                                     <ul class="entry__meta">
@@ -161,7 +78,7 @@
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="{% static 'blog/images/avatars/user-03.jpg' %}" alt="">
+                                        <img class="avatar" src="{% static 'images/avatars/user-03.jpg' %}" alt="">
                                     </a>
 
                                     <ul class="entry__meta">
@@ -182,8 +99,7 @@
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="{% static 'blog/images/avatars/user-03.jpg' %}" 
-                                        alt="">
+                                        <img class="avatar" src="{% static 'blog/images/avatars/user-03.jpg' %}" alt="">
                                     </a>
 
                                     <ul class="entry__meta">
@@ -206,6 +122,7 @@
 
     <!-- s-content
     ================================================== -->
+    {% for post in posts %}
     <section class="s-content">
         
         <div class="row masonry-wrap">
@@ -217,25 +134,23 @@
                         
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
-                            <img src="{% static 'images/thumbs/masonry/lamp-400.jpg' %}" 
-                                    srcset="{% static 'images/thumbs/masonry/lamp-400.jpg 1x, images/thumbs/masonry/lamp-800.jpg 2x' %}" alt="">
+                            <img src="{% static 'blog/images/thumbs/masonry/lamp-400.jpg' %}" 
+                                    srcset="{% static 'blog/images/thumbs/masonry/lamp-400.jpg 1x, images/thumbs/masonry/lamp-800.jpg 2x' %}" alt="">
                         </a>
                     </div>
-    {% for post in posts %}
-    {% if post.title == 'first post' %}
+    
                     <div class="entry__text">
                         <div class="entry__header">
                             
-
                             <div class="entry__date">
-                                <a href="single-standard.html">{{ post.date_posted }}</a>
+                                <a href="single-standard.html">December 15, 2017</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h1>
+                            <h1 class="entry__title"><a href="single-standard.html">Just a Standard Format Post.</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
                             <p>
-                                {{ post.content }}
+                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
                             </p>
                         </div>
                         <div class="entry__meta">
@@ -245,27 +160,31 @@
                             </span>
                         </div>
                     </div>
-
+    
                 </article> <!-- end article -->
-        
+ 
+ {% if post.title == 'first post' %}
+                           
                 <article class="masonry__brick entry format-quote" data-aos="fade-up">
                         
                     <div class="entry__thumb">
                         <blockquote>
-                                <p>original quote</p>
+                                <p>
+                                    {{ post.content }}
+                                </p>
     
                                 <cite>Dieter Rams</cite>
                         </blockquote>
-                    </div> 
-       
+                    </div>   
+    
                 </article> <!-- end article -->
 
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
                         
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
-                            <img src="images/thumbs/masonry/tulips-400.jpg" 
-                                    srcset="images/thumbs/masonry/tulips-400.jpg 1x, images/thumbs/masonry/tulips-800.jpg 2x" alt="">
+                            <img src="{% static 'blog/images/thumbs/masonry/tulips-400.jpg' %}" 
+                                    srcset="{% static 'blog/images/thumbs/masonry/tulips-400.jpg 1x, images/thumbs/masonry/tulips-800.jpg 2x' %}" alt="">
                         </a>
                     </div>
     {% elif post.title == 'second post' %}
@@ -273,9 +192,9 @@
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-standard.html">{{ post.date_posted }}</a>
+                                <a href="single-standard.html">December 15, 2017</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">{{ post.title}}</a></h1>
+                            <h1 class="entry__title"><a href="single-standard.html">10 Interesting Facts About Caffeine.</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
@@ -283,8 +202,6 @@
                                 {{ post.content }}
                             </p>
                         </div>
-    {% endif %}  
-    {% endfor %}
                         <div class="entry__meta">
                             <span class="entry__meta-links">
                                 <a href="category.html">Health</a>
@@ -293,13 +210,14 @@
                     </div>
     
                 </article> <!-- end article -->
-
+    {% endif %}
+    {% endfor %}
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
 
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
-                            <img src="images/thumbs/masonry/cookies-400.jpg" 
-                                    srcset="images/thumbs/masonry/cookies-400.jpg 1x, images/thumbs/masonry/cookies-800.jpg 2x" alt="">
+                            <img src="{% static 'blog/images/thumbs/masonry/cookies-400.jpg' %}" 
+                                    srcset="{% static 'blog/images/thumbs/masonry/cookies-400.jpg 1x, images/thumbs/masonry/cookies-800.jpg 2x' %}" alt="">
                         </a>
                     </div>
     
@@ -331,8 +249,8 @@
 
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
-                            <img src="images/thumbs/masonry/wheel-400.jpg" 
-                                    srcset="images/thumbs/masonry/wheel-400.jpg 1x, images/thumbs/masonry/wheel-800.jpg 2x" alt="">
+                            <img src="{% static 'blog/images/thumbs/masonry/wheel-400.jpg' %}" 
+                                    srcset="[% static 'blog/images/thumbs/masonry/wheel-400.jpg 1x, images/thumbs/masonry/wheel-800.jpg 2x' %}" alt="">
                         </a>
                     </div>
     
@@ -364,8 +282,8 @@
                         
                     <div class="entry__thumb video-image">
                         <a href="https://player.vimeo.com/video/117310401?color=01aef0&title=0&byline=0&portrait=0" data-lity>
-                            <img src="images/thumbs/masonry/shutterbug-400.jpg" 
-                                    srcset="images/thumbs/masonry/shutterbug-400.jpg 1x, images/thumbs/masonry/shutterbug-800.jpg 2x" alt="">
+                            <img src="{% static 'blog/images/thumbs/masonry/shutterbug-400.jpg' %}" 
+                                    srcset="{% static 'blog/images/thumbs/masonry/shutterbug-400.jpg 1x, images/thumbs/masonry/shutterbug-800.jpg 2x' %}" alt="">
                         </a>
                     </div>
     
@@ -399,16 +317,16 @@
                     <div class="entry__thumb slider">
                         <div class="slider__slides">
                             <div class="slider__slide">
-                                <img src="images/thumbs/masonry/gallery/gallery-1-400.jpg" 
-                                        srcset="images/thumbs/masonry/gallery/gallery-1-400.jpg 1x, images/thumbs/masonry/gallery/gallery-1-800.jpg 2x" alt=""> 
+                                <img src="{% static 'blog/images/thumbs/masonry/gallery/gallery-1-400.jpg' %}" 
+                                        srcset="{% static 'images/thumbs/masonry/gallery/gallery-1-400.jpg 1x, images/thumbs/masonry/gallery/gallery-1-800.jpg 2x' %}" alt=""> 
                             </div>
                             <div class="slider__slide">
-                                <img src="images/thumbs/masonry/gallery/gallery-2-400.jpg" 
-                                        srcset="images/thumbs/masonry/gallery/gallery-2-400.jpg 1x, images/thumbs/masonry/gallery/gallery-2-800.jpg 2x" alt=""> 
+                                <img src="{% static 'blog/images/thumbs/masonry/gallery/gallery-2-400.jpg' %}" 
+                                        srcset="{% static 'blog/images/thumbs/masonry/gallery/gallery-2-400.jpg 1x, blog/images/thumbs/masonry/gallery/gallery-2-800.jpg 2x' %}" alt=""> 
                             </div>
                             <div class="slider__slide">
-                                <img src="images/thumbs/masonry/gallery/gallery-3-400.jpg" 
-                                        srcset="images/thumbs/masonry/gallery/gallery-3-400.jpg 1x, images/thumbs/masonry/gallery/gallery-3-800.jpg 2x" alt="">  
+                                <img src="{% static 'blog/images/thumbs/masonry/gallery/gallery-3-400.jpg' %}" 
+                                        srcset="{% static 'blog/images/thumbs/masonry/gallery/gallery-3-400.jpg 1x, blog/images/thumbs/masonry/gallery/gallery-3-800.jpg 2x' %}" alt="">  
                             </div>
                         </div>
                     </div>
@@ -441,11 +359,11 @@
 
                     <div class="entry__thumb">
                         <a href="single-audio.html" class="entry__thumb-link">
-                            <img src="images/thumbs/masonry/guitarman-400.jpg" 
-                                    srcset="images/thumbs/masonry/guitarman-400.jpg 1x, images/thumbs/masonry/guitarman-800.jpg 2x" alt="">
+                            <img src="{% static 'blog/images/thumbs/masonry/guitarman-400.jpg' %}" 
+                                    srcset="{% static 'blog/images/thumbs/masonry/guitarman-400.jpg 1x, blog/images/thumbs/masonry/guitarman-800.jpg 2x' %}" alt="">
                         </a>
                         <div class="audio-wrap">
-                            <audio id="player" src="media/AirReview-Landmarks-02-ChasingCorporate.mp3" width="100%" height="42" controls="controls"></audio>
+                            <audio id="player" src="{% static 'blog/media/AirReview-Landmarks-02-ChasingCorporate.mp3' %}" width="100%" height="42" controls="controls"></audio>
                         </div>
                     </div>
 
@@ -490,8 +408,8 @@
 
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
-                            <img src="images/thumbs/masonry/jump-400.jpg" 
-                                    srcset="images/thumbs/masonry/jump-400.jpg 1x, images/thumbs/masonry/jump-800.jpg 2x" alt="">
+                            <img src="{% static 'blog/images/thumbs/masonry/jump-400.jpg' %}" 
+                                    srcset="{% static 'blog/images/thumbs/masonry/jump-400.jpg 1x, blog/images/thumbs/masonry/jump-800.jpg 2x' %}" alt="">
                         </a>
                     </div>
 
@@ -523,8 +441,8 @@
 
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
-                            <img src="images/thumbs/masonry/beetle-400.jpg" 
-                                    srcset="images/thumbs/masonry/beetle-400.jpg 1x, images/thumbs/masonry/beetle-800.jpg 2x" alt="">
+                            <img src="{% static 'blog/images/thumbs/masonry/beetle-400.jpg' %}" 
+                                    srcset="{% static 'blog/images/thumbs/masonry/beetle-400.jpg 1x, blog/images/thumbs/masonry/beetle-800.jpg 2x' %}" alt="">
                         </a>
                     </div>
 
@@ -555,8 +473,8 @@
 
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
-                            <img src="images/thumbs/masonry/fuji-400.jpg" 
-                                    srcset="images/thumbs/masonry/fuji-400.jpg 1x, images/thumbs/masonry/fuji-800.jpg 2x" alt="">
+                            <img src="{% static 'blog/images/thumbs/masonry/fuji-400.jpg' %}" 
+                                    srcset="{% static 'blog/images/thumbs/masonry/fuji-400.jpg 1x, images/thumbs/masonry/fuji-800.jpg 2x'" alt="">
                         </a>
                     </div>
 
@@ -764,96 +682,9 @@
 
     <!-- s-footer
     ================================================== -->
-    <footer class="s-footer">
+    <footer class="s-footer"></footer>
 
-        <div class="s-footer__main">
-            <div class="row">
-                
-                <div class="col-two md-four mob-full s-footer__sitelinks">
-                        
-                    <h4>Quick Links</h4>
-
-                    <ul class="s-footer__linklist">
-                        <li><a href="#0">Home</a></li>
-                        <li><a href="#0">Blog</a></li>
-                        <li><a href="#0">Styles</a></li>
-                        <li><a href="#0">About</a></li>
-                        <li><a href="#0">Contact</a></li>
-                        <li><a href="#0">Privacy Policy</a></li>
-                    </ul>
-
-                </div> <!-- end s-footer__sitelinks -->
-
-                <div class="col-two md-four mob-full s-footer__archives">
-                        
-                    <h4>Archives</h4>
-
-                    <ul class="s-footer__linklist">
-                        <li><a href="#0">January 2018</a></li>
-                        <li><a href="#0">December 2017</a></li>
-                        <li><a href="#0">November 2017</a></li>
-                        <li><a href="#0">October 2017</a></li>
-                        <li><a href="#0">September 2017</a></li>
-                        <li><a href="#0">August 2017</a></li>
-                    </ul>
-
-                </div> <!-- end s-footer__archives -->
-
-                <div class="col-two md-four mob-full s-footer__social">
-                        
-                    <h4>Social</h4>
-
-                    <ul class="s-footer__linklist">
-                        <li><a href="#0">Facebook</a></li>
-                        <li><a href="#0">Instagram</a></li>
-                        <li><a href="#0">Twitter</a></li>
-                        <li><a href="#0">Google+</a></li>
-                        <li><a href="#0">LinkedIn</a></li>
-                    </ul>
-
-                </div> <!-- end s-footer__social -->
-
-                <div class="col-five md-full end s-footer__subscribe">
-                        
-                    <h4>Our Newsletter</h4>
-
-                    <p>Sit vel delectus amet officiis repudiandae est voluptatem. Tempora maxime provident nisi et fuga et enim exercitationem ipsam. Culpa consequatur occaecati.</p>
-
-                    <div class="subscribe-form">
-                        <form id="mc-form" class="group" novalidate="true">
-
-                            <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
-                
-                            <input type="submit" name="subscribe" value="Send">
-                
-                            <label for="mc-email" class="subscribe-message"></label>
-                
-                        </form>
-                    </div>
-
-                </div> <!-- end s-footer__subscribe -->
-
-            </div>
-        </div> <!-- end s-footer__main -->
-
-        <div class="s-footer__bottom">
-            <div class="row">
-                <div class="col-full">
-                    <div class="s-footer__copyright">
-                        <span>©Copyright Blogchain</span> 
-                        <span>Site by <a href="">SharingInc</a></span>
-                    </div>
-
-                    <div class="go-top">
-                        <a class="smoothscroll" title="Back to Top" href="#top"></a>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- end s-footer__bottom -->
-
-    </footer> <!-- end s-footer -->
-
-
+    
     <!-- preloader
     ================================================== -->
     <div id="preloader">
@@ -871,7 +702,14 @@
 
     <!-- Java Script
     ================================================== -->
-   
+    <script src="{% static 'blog/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'blog/js/plugins.js' %}"></script>
+    <script src="{% static 'blog/js/main.js' %}"></script>
+    <script>
+        $(".header").load( "header.html");
+        $(".s-footer").load( "footer.html");
+    </script>
+
 </body>
 
 </html>
