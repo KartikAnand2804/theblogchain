@@ -204,19 +204,23 @@
                                      alt="">
                         </a>
                     </div>
-    
+                    
+                    {% for post in posts %}
+                    {% if post.title == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
                                 <a href="single-standard.html">December 15, 2017</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">Just a Standard Format Post.</a></h1>
+                            <h1 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
                             <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                                
+                                {{ post.content }}
+                              
                             </p>
                         </div>
                         <div class="entry__meta">
@@ -226,6 +230,8 @@
                             </span>
                         </div>
                     </div>
+                    {% if post.title == '' %}
+                    {% endfor %}
     
                 </article> <!-- end article -->
  
@@ -254,24 +260,21 @@
                         </a>
                     </div>
 
+                    {% for post in posts %}
+                    {% if post.title == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
                                 <a href="single-standard.html">December 15, 2017</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">10 Interesting Facts About Caffeine.</a></h1>
+                            <h1 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h1>
                        
                         </div>
                         <div class="entry__excerpt">
                             <p>
-                            {% for post in posts %}
-                            {% if post.title == 'first post'%}
-
-                                {{ post.content }}
-
-                            {% endif %}                             
-                            {% endfor %}     
+                            
+                                {{ post.content }}                                 
                                                                                               
                             </p>
                         </div>
@@ -281,7 +284,8 @@
                             </span>
                         </div>
                     </div>
-
+                    {% endif %}
+                    {% endfor %}
     
                 </article> <!-- end article -->
 
@@ -293,25 +297,25 @@
                                      alt="">
                         </a>
                     </div>
-    
+                    
+                    {% for post in posts %}
+                    {% if post.title == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
                                 <a href="single-standard.html">December 10, 2017</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">No Sugar Oatmeal Cookies.</a></h1>
+                            <h1 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
                             <p>                               
-                            {% for post in posts %}
-                            {% if post.title == 'second post' %}
+                            
 
                                 {{ post.content }}
 
-                            {% endif %}                             
-                            {% endfor %} 
+                                                        
                             </p>
                         </div>
                         <div class="entry__meta">
@@ -321,7 +325,8 @@
                             </span>
                         </div>
                     </div>
-    
+                    {% endif %} 
+                    {% endfor %}
                 </article> <!-- end article -->
 
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
@@ -332,25 +337,24 @@
                                      alt="">
                         </a>
                     </div>
-    
+                    
+                    
+                    {% for post in posts %}
+                    {% if post.title == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
                                 <a href="single-standard.html">December 10, 2017</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">Visiting Theme Parks Improves Your Health.</a></h1>
+                            <h1 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
                             <p>
-                            {% for post in posts %}
-                            {% if post.title == 'third post' %}
+                                
+                            {{ post.content }}
 
-                                {{ post.content }}
-
-                            {% endif %}                             
-                            {% endfor %}
                             </p>
                         </div>
                         <div class="entry__meta">
@@ -360,7 +364,8 @@
                             </span>
                         </div>
                     </div>
-    
+                    {% endif %}                             
+                    {% endfor %}
                 </article> <!-- end article -->
 
                 <article class="masonry__brick entry format-video" data-aos="fade-up">
@@ -371,19 +376,21 @@
                                     alt="">
                         </a>
                     </div>
-    
+                    
+                    {% for post in posts %}
+                    {% if post.title == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
                                 <a href="single-video.html">December 10, 2017</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-video.html">Key Benefits Of Family Photography.</a></h1>
+                            <h1 class="entry__title"><a href="single-video.html">{{ post.title }}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
                             <p>
-                              vkkfndfndfklnsnfkfskfsdfnsdlkfnsdlfksn  
+                              {{ post.content }}  
                             </p>
                         </div>
                         <div class="entry__meta">
@@ -393,7 +400,8 @@
                             </span>
                         </div>
                     </div>
-    
+                    {% endif %}
+                    {% endfor %}
                 </article> <!-- end article -->
 
 
@@ -415,19 +423,21 @@
                             </div>
                         </div>
                     </div>
-    
+        
+                    {% for post in posts %}
+                    {% if post.title == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
                                 <a href="single-gallery.html">December 10, 2017</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-gallery.html">Workspace Design Trends and Ideas.</a></h1>
+                            <h1 class="entry__title"><a href="single-gallery.html">{{ post.title }}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
                             <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                                {{ post.content }}
                             </p>
                         </div>
                         <div class="entry__meta">
@@ -437,6 +447,8 @@
                             </span>
                         </div>
                     </div>
+                    {% endif %}
+                    {% endfor %}
     
                 </article> <!-- end article -->
 
@@ -452,18 +464,20 @@
                         </div>
                     </div>
 
+                    {% for post in posts %}
+                    {% if post.title == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
                                 <a href="single-audio.html">December 10, 2017</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-audio.html">What Your Music Preference Says About You and Your Personality.</a></h1>
+                            <h1 class="entry__title"><a href="single-audio.html">{{ post.title }}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
                             <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                                {{ post.content }}
                             </p>
                         </div>
                         <div class="entry__meta">
@@ -473,6 +487,8 @@
                             </span>
                         </div>
                     </div>
+                    {% endif %}
+                    {% endfor %}
 
                 </article> <!-- end article -->
 
@@ -498,18 +514,20 @@
                         </a>
                     </div>
 
+                    {% for post in posts %}
+                    {% if post.title == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
                                 <a href="single-standard.html">December 10, 2017</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">Create Meaningful Family Moments.</a></h1>
+                            <h1 class="entry__title"><a href="single-standard.html">{{post.title}}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
                             <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                                {{post.content}}
                             </p>
                         </div>
                         <div class="entry__meta">
@@ -519,6 +537,8 @@
                             </span>
                         </div>
                     </div>
+                    {% endif %}
+                    {% endfor %}
 
                 </article> <!-- end article -->
 
@@ -531,18 +551,20 @@
                         </a>
                     </div>
 
+                    {% for post in posts %}
+                    {% if post.title == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
                                 <a href="single-standard.html">December 10, 2017</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">Throwback To The Good Old Days.</a></h1>
+                            <h1 class="entry__title"><a href="single-standard.html">{{post.title}}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
                             <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                                {{post.content}}
                             </p>
                         </div>
                         <div class="entry__meta">
@@ -551,6 +573,8 @@
                             </span>
                         </div>
                     </div>
+                    {% endif %}
+                    {% endfor %}
 
                 </article> <!-- end article -->
 
@@ -563,18 +587,20 @@
                         </a>
                     </div>
 
+                    {% for post in posts %}
+                    {% if post.title == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
                                 <a href="single-standard.html">December 10, 2017</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">Just Another  Standard Format Post.</a></h1>
+                            <h1 class="entry__title"><a href="single-standard.html">{{post.title}}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
                             <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                                {{post.content}}
                             </p>
                         </div>
                         <div class="entry__meta">
@@ -584,6 +610,8 @@
                             </span>
                         </div>
                     </div>
+                    {% endif %}
+                    {% endfor %}
 
                 </article> <!-- end article -->
 
@@ -596,18 +624,20 @@
                         </a>
                     </div>
 
+                    {% for post in posts %}
+                    {% if post.title == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
                                 <a href="single-standard.html">December 10, 2017</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">Planning Your First Trip to Sydney.</a></h1>
+                            <h1 class="entry__title"><a href="single-standard.html">{{post.title}}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
                             <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                                {{post.content}}
                             </p>
                         </div>
                         <div class="entry__meta">
@@ -617,6 +647,8 @@
                             </span>
                         </div>
                     </div>
+                    {% endif %}
+                    {% endfor %}
 
                 </article> <!-- end article -->
 
