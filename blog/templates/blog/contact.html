@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+{% load static %}
 <html class="no-js" lang="en">
 <head>
 
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Contact - Philosophy</title>
+    <title>Contact - BlogChain</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -15,14 +16,14 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{% static 'blog/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/vendor.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
 
     <!-- script
     ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
+    <script src="{% static 'blog/js/modernizr.js' %}"></script>
+    <script src="{% static 'blog/js/pace.min.js' %}"></script>
 
     <!-- favicons
     ================================================== -->
@@ -42,7 +43,7 @@
 
                 <div class="header__logo">
                     <a class="logo" href="index.html">
-                        <img src="images/logo.svg" alt="Homepage">
+                        <img src="{% static 'blog/images/logo.png' %}" alt="Homepage">
                     </a>
                 </div> <!-- end header__logo -->
 
@@ -85,16 +86,16 @@
                     <h2 class="header__nav-heading h6">Site Navigation</h2>
 
                     <ul class="header__nav">
-                        <li><a href="index.html" title="">Home</a></li>
+                        <li><a href="" title="">Home</a></li>
                         <li class="has-children">
                             <a href="#0" title="">Categories</a>
                             <ul class="sub-menu">
-                            <li><a href="category.html">Lifestyle</a></li>
-                            <li><a href="category.html">Health</a></li>
-                            <li><a href="category.html">Family</a></li>
-                            <li><a href="category.html">Management</a></li>
-                            <li><a href="category.html">Travel</a></li>
-                            <li><a href="category.html">Work</a></li>
+                            <li><a href="/category">Lifestyle</a></li>
+                            <li><a href="/category">Health</a></li>
+                            <li><a href="/category">Family</a></li>
+                            <li><a href="/category">Management</a></li>
+                            <li><a href="/category">Travel</a></li>
+                            <li><a href="/category">Work</a></li>
                             </ul>
                         </li>
                         <li class="has-children">
@@ -107,8 +108,8 @@
                             </ul>
                         </li>
                         <li><a href="style-guide.html" title="">Styles</a></li>
-                        <li><a href="about.html" title="">About</a></li>
-                        <li class="current"><a href="contact.html" title="">Contact</a></li>
+                        <li><a href="/about" title="">About</a></li>
+                        <li class="current"><a href="/contact" title="">Contact</a></li>
                     </ul> <!-- end header__nav -->
 
                     <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
@@ -217,7 +218,7 @@
                 <div class="block-1-2 block-m-full popular__posts">
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/wheel-150.jpg" alt="">
+                            <img src="{% static 'blog/images/thumbs/small/wheel-150.jpg' %}" alt="">
                         </a>
                         <h5><a href="#0">Visiting Theme Parks Improves Your Health.</a></h5>
                         <section class="popular__meta">
@@ -227,7 +228,7 @@
                     </article>
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/shutterbug-150.jpg" alt="">
+                            <img src="{% static 'blog/images/thumbs/small/shutterbug-150.jpg' %}" alt="">
                         </a>
                         <h5><a href="#0">Key Benefits Of Family Photography.</a></h5>
                         <section class="popular__meta">
@@ -237,7 +238,7 @@
                     </article>
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/cookies-150.jpg" alt="">
+                            <img src="{% static 'blo/images/thumbs/small/cookies-150.jpg' %}" alt="">
                         </a>
                         <h5><a href="#0">Absolutely No Sugar Oatmeal Cookies.</a></h5>
                         <section class="popular__meta">
@@ -247,7 +248,7 @@
                     </article>
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/beetle-150.jpg" alt="">
+                            <img src="{% static 'blog/images/thumbs/small/beetle-150.jpg' %}" alt="">
                         </a>
                         <h5><a href="#0">Throwback To The Good Old Days.</a></h5>
                         <section class="popular__meta">
@@ -257,7 +258,7 @@
                     </article>
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/tulips-150.jpg" alt="">
+                            <img src="{% static 'blog/images/thumbs/small/tulips-150.jpg' %}" alt="">
                         </a>
                         <h5><a href="#0">10 Interesting Facts About Caffeine.</a></h5>
                         <section class="popular__meta">
@@ -267,7 +268,7 @@
                     </article>
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/salad-150.jpg" alt="">
+                            <img src="{% static 'blog/images/thumbs/small/salad-150.jpg' %}" alt="">
                         </a>
                         <h5><a href="#0">Healthy Mediterranean Salad Recipes</a></h5>
                         <section class="popular__meta">
@@ -405,8 +406,8 @@
             <div class="row">
                 <div class="col-full">
                     <div class="s-footer__copyright">
-                        <span>© Copyright Philosophy 2018</span> 
-                        <span>Site Template by <a href="https://colorlib.com/">Colorlib</a></span>
+                        <span>© Copyright BlogChain</span> 
+                        <span>Site by <a href="">SharingInc.</a></span>
                     </div>
 
                     <div class="go-top">
@@ -436,10 +437,10 @@
 
     <!-- Java Script
     ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
+    <script src="{% static 'blog/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'blog/js/plugins.js' %}"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script src="js/main.js"></script>
+    <script src="{% static 'blog/js/main.js' %}"></script>
 
 </body>
 
