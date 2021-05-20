@@ -1,61 +1,73 @@
-<!DOCTYPE html>
 {% load static %}
-<html>
-<head>
-	<title>Register</title>
-	<!-- css -->
-	<link rel=¨stylesheet¨ type=¨text/css¨ href="{% static 'users/register.css'%}">
-	<!-- javascript -->
-	<script src="{% static 'users/register.js'%}"></script>
-</head>
-<body>
-<h2>TheBlogChain.</h2>
-{% block content %}
-<div class="container" id="container">
-	<div class="form-container sign-up-container">
-		<form method="POST" action="#">
-			{% csrf_token %}
-			<h1>Create Account</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="{% static 'users/login/style.css' %}">
+	</head>
+	<body>
+		{% block content %}
+		<h2>TheBlogChain</h2>
+		{% if mesages %}
+			{% for message in messages %}
+			<div class="alert alert-{{ message.tags }}">
+				{{ message }}				
 			</div>
-			<span>or use your email for registration</span>
-			{{ form.as_p }}
-			<button>Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form action="#">
-			<h1>Sign in</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			{% endfor %}
+		{% endif %}
+		<div class="container" id="container">
+			<div class="form-container sign-up-container">
+				<form action="#">
+					<h1>Create Account</h1>
+					<div class="social-container">
+						<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+						<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+					</div>
+
+					{% crispy form %}
+
+					<span>or use your email for registration</span>
+					{{ form|crispy }}
+					<button>Sign Up</button>
+				</form>
 			</div>
-			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
+
+			<div class="form-container sign-in-container">
+				<form action="#">
+					<h1>Sign in</h1>
+					<div class="social-container">
+						<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+						<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+					</div>
+					<span>or use your account</span>
+					<input type="email" placeholder="Email" id="email_field" />
+					<input type="password" placeholder="Password" id="password_field" />
+					<a href="#">Forgot your password?</a>
+					<button onclick="login()">Sign In</button>
+				</form>
 			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
+
+			<div class="overlay-container">
+				<div class="overlay">
+					<div class="overlay-panel overlay-left">
+						<h1>Hello, Friend!</h1>
+						<p>Enter your personal details and start journey with us</p>
+						<button class="ghost" id="signIn">Sign In</button>
+					</div>
+					<div class="overlay-panel overlay-right">
+						<h1>Welcome Back!</h1>
+						<p>To keep connected with us please login with your personal info</p>
+						<button class="ghost" id="signUp">Sign Up</button>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
-{% endblock content %}
-</body>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="{% static 'users/login/app.js' %}"></script>
+		<script src="{% static 'users/login/auth.js' %}"></script>
+	{% endblock content %}
+	</body>
 </html>
