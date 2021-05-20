@@ -10,3 +10,11 @@ class Post(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class PostPage(models.Model):
+	title = Post.title
+	content = models.TextField()
+	date_posted = Post.date_posted
+
+	def __str__(self):
+		return self.title
