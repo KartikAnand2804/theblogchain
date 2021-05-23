@@ -40,5 +40,8 @@ def gallery(request):
 def video(request):
 	return render(request, 'blog/single-video.html', postcontent)
 
-def guide(request):
-	return render(request, 'blog/style-guide.html', postcontent)
+#def guide(request):
+#	return render(request, 'blog/style-guide.html', postcontent)
+
+def standard(request):
+	return render(request, 'blog/single-standard.html', postcontent)

@@ -30,5 +30,7 @@ urlpatterns = [
     path('audio/', blog_views.audio, name='audio'),
     path('gallery/', blog_views.gallery, name='gallery'),
     path('video/', blog_views.video, name='video'),
-     path('guide/', blog_views.guide, name='guide'),
+    #path('guide/', blog_views.guide, name='guide'),
+    path('standard/', blog_views.standard, name='standard'),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
