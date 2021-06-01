@@ -15,7 +15,7 @@ class Post(models.Model):
 
 # blog posts in all the blog pages 
 class PostPage(models.Model):
-	title = Post.title
+	title = models.CharField(max_length=200, default='title' )
 	author = models.CharField(max_length=100, default=User) #change it to the current logged in user
 	introduction = models.TextField(default='Type your introduction here ...')
 	content = models.TextField()
@@ -30,7 +30,7 @@ class PostPage(models.Model):
 	titlePara3 = models.CharField(max_length=100, default='...') 
 	para3 = models.TextField(default='...')
 	
-	date_posted = Post.date_posted
+	date_posted = models.DateTimeField(default=timezone.now)
 
 	def __str__(self):
 		return self.title

@@ -1,12 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
 <html class="no-js" lang="en">
+{% for content in content %}
+{% if content.title == 'When the State Decides to Hijack a Plane' %}
 <head>
 
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>TheBlogChain</title>
+    <title>TheBlogChain {{ content.title }}</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -118,8 +120,7 @@
 
     </div> <!-- end s-pageheader -->
 
-    {% for content in content %}
-    {% if content.title == '' %}
+   
     <!-- s-content
     ================================================== -->
     <section class="s-content s-content--narrow s-content--no-padding-bottom">
@@ -212,7 +213,7 @@
 
                     <div class="s-content__author-about">
                         <h4 class="s-content__author-name">
-                            <a href="#0">J{{ content.author }}</a>
+                            <a href="#0">{{ content.author }}</a>
                         </h4>
                     
                         <p>

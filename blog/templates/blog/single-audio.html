@@ -1,6 +1,8 @@
 {% load static %}
 <!DOCTYPE html>
 <html class="no-js" lang="en">
+    {% for content in content %}
+    {% if content.title == '' %} <!-- ENTER THE TITLE HERE -->
 <head>
 
     <!--- basic page needs
@@ -118,8 +120,7 @@
     </div> <!-- end s-pageheader -->
 
 
-    {% for content in content %}
-    {% if content.title == '' %} <!-- ENTER THE TITLE HERE -->
+
     
     <!-- s-content
     ================================================== -->
