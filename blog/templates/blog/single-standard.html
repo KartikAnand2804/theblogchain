@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 {% for content in content %}
-{% if content.title == '' %}
+{% if content.id_num == '002' %}
  
 <head>
 
@@ -34,15 +34,13 @@
 
 <body id="top">
 
-    <!-- pageheader
-    ================================================== -->
-    <div class="s-pageheader">
+     <div class="s-pageheader">
 
         <header class="header">
             <div class="header__content row">
 
                 <div class="header__logo">
-                    <a class="logo" href="index">
+                    <a class="logo" href="/">
                         <img src="{% static 'blog/images/logo.png' %}" alt="Homepage">
                     </a>
                 </div> <!-- end header__logo -->
@@ -55,7 +53,7 @@
                         <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://instagram.com/sharingincorporated"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                     </li>
                     <li>
                         <a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
@@ -87,27 +85,29 @@
 
                     <ul class="header__nav">
                         <li><a href="/" title="">Home</a></li>
-                        <li class="has-children">
-                            <a href="#0" title="">Categories</a>
-                            <ul class="sub-menu">
+                        <!--li class="has-children">
+                            <--a href="/category" title="">Categories</a-->
+                            <!--ul class="sub-menu">
                             <li><a href="/category">Lifestyle</a></li>
                             <li><a href="/category">Health</a></li>
                             <li><a href="/category">Family</a></li>
                             <li><a href="/category">Management</a></li>
                             <li><a href="/category">Travel</a></li>
                             <li><a href="/category">Work</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-children current">
-                            <a href="#0" title="">Blog</a>
+                       <--/ul-->
+                        <!--/li-->
+                        <li class="has-children">
+                            <a href="#0" title=""  class="current">Blog</a>
                             <ul class="sub-menu">
-                            <li><a href="/video">Video Post</a></li>
-                            <li><a href="/audio">Audio Post</a></li>
-                            <li><a href="/gallery">Gallery Post</a></li>
-                            <li><a href="/standard">Standard Post</a></li>
+                                {% for post in posts %}
+                            {% if post.id_num == '001' %}<li><a href="/audio">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '002' %}<li><a href="/gallery">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '' %}<li><a href="/standard">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '' %}<li><a href="/video">{{ post.title }}</a></li>{% endif %}
+                                {% endfor %}
                             </ul>
                         </li>
-                        <li><a href="/style" title="">Styles</a></li>
+                        <!--li><a href="style-guide.html" title="">Styles</a></li--> <!-- page to be removed -->
                         <li><a href="/about" title="">About</a></li>
                         <li><a href="/contact" title="">Contact</a></li>
                     </ul> <!-- end header__nav -->
@@ -120,10 +120,7 @@
         </header> <!-- header -->
 
     </div> <!-- end s-pageheader -->
-
-
-    {% for content in content %}
-    {% if content.title == '' %}
+    
     <!-- s-content
     ================================================== -->
     <section class="s-content s-content--narrow s-content--no-padding-bottom">
@@ -146,10 +143,8 @@
     
             <div class="s-content__media col-full">
                 <div class="s-content__post-thumb">
-                    <img src="{% static 'blog/images/thumbs//standardtandard-1000.jpg' %}" 
-                         srcset="images/thumbs//standardtandard-2000.jpg 2000w, 
-                                 images/thumbs//standardtandard-1000.jpg 1000w, 
-                                 images/thumbs//standardtandard-500.jpg 500w" 
+                    <img src="{% static 'blog/images/thumbs/single/standard/standard-1000.jpg' %}" 
+                    
                          sizes="(max-width: 2000px) 100vw, 2000px" alt="" >
                 </div>
             </div> <!-- end s-content__media -->
@@ -164,7 +159,7 @@
 
                 <p>
                 <img src="{% static 'blog/images/wheel-1000.jpg' %}" 
-                     srcset="images/wheel-2000.jpg 2000w, images/wheel-1000.jpg 1000w, images/wheel-500.jpg 500w" 
+                     
                      sizes="(max-width: 2000px) 100vw, 2000px" alt="">
                 </p>
 
@@ -249,66 +244,59 @@
                 <h3>Popular Posts</h3>
 
                 <div class="block-1-2 block-m-full popular__posts">
+                    {% for post in posts %}
+                    {% if post.id_num == '001' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/wheel-150.jpg" alt="">
+                            <img src="{% static 'blog/images/thumbs/small/wheel-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">Visiting Theme Parks Improves Your Health.</a></h5>
+                        <h5><a href="#0">{{ post.title }}</a></h5>
                         <section class="popular__meta">
-                                <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">Dec 19, 2017</time></span>
+                                <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
                         </section>
                     </article>
+                    {% endif %}
+
+                    {% if post.id_num == '002' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/shutterbug-150.jpg" alt="">
+                            <img src="{% static 'blog/images/thumbs/small/shutterbug-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">Key Benefits Of Family Photography.</a></h5>
+                       <h5><a href="#0">{{ post.title }}</a></h5>
                         <section class="popular__meta">
-                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-18">Dec 18, 2017</time></span>
+                                <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
                         </section>
                     </article>
+                    {% endif %}
+
+                    {% if post.id_num == '' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/cookies-150.jpg" alt="">
+                            <img src="{% static 'blog/images/thumbs/small/cookies-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">Absolutely No Sugar Oatmeal Cookies.</a></h5>
+                        <h5><a href="#0">{{ post.title }}</a></h5>
                         <section class="popular__meta">
-                                <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-16">Dec 16, 2017</time></span>
+                                <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
                         </section>
                     </article>
+                    {% endif %}
+
+                    {% if post.id_num == '' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
                             <img src="images/thumbs/small/beetle-150.jpg" alt="">
                         </a>
-                        <h5><a href="#0">Throwback To The Good Old Days.</a></h5>
+                        <h5><a href="#0">{{ post.title }}</a></h5>
                         <section class="popular__meta">
-                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-16">Dec 16, 2017</time></span>
+                                <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
                         </section>
                     </article>
-                    <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/tulips-150.jpg" alt="">
-                        </a>
-                        <h5><a href="#0">10 Interesting Facts About Caffeine.</a></h5>
-                        <section class="popular__meta">
-                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-14">Dec 14, 2017</time></span>
-                        </section>
-                    </article>
-                    <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/salad-150.jpg" alt="">
-                        </a>
-                        <h5><a href="#0">Healthy Mediterranean Salad Recipes</a></h5>
-                        <section class="popular__meta">
-                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-12">Dec 12, 2017</time></span>
-                        </section>
-                    </article>
+                    {% endif %}
+                    {% endfor %}
                 </div> <!-- end popular_posts -->
             </div> <!-- end popular -->
             
@@ -316,7 +304,11 @@
                 <h3>About Us.</h3>
 
                 <p>
-                Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Pellentesque in ipsum id orci porta dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
+               {% for info in info %}
+                
+                {{ info.about_us }}
+
+                {% endfor %}
                 </p>
 
                 <ul class="about__social">
@@ -342,16 +334,16 @@
                 <h3>Tags</h3>
 
                 <div class="tagcloud">
-                    <a href="#0">Salad</a>
-                    <a href="#0">Recipe</a>
-                    <a href="#0">Places</a>
-                    <a href="#0">Tips</a>
-                    <a href="#0">Friends</a>
-                    <a href="#0">Travel</a>
-                    <a href="#0">Exercise</a>
-                    <a href="#0">Reading</a>
-                    <a href="#0">Running</a>
-                    <a href="#0">Self-Help</a>
+                     <a href="#0">Crypto</a>
+                    <a href="#0">Trade</a>
+                    <a href="#0">Sports</a>
+                    <a href="#0">Literature</a>
+                    <a href="#0">Equities</a>
+                    <a href="#0">Securities</a>
+                    <a href="#0">Blockchain</a>
+                    <a href="#0">Tech</a>
+                    <a href="#0">Finance</a>
+                    <a href="#0">Investment</a>
                     <a href="#0">Vacation</a>
                 </div> <!-- end tagcloud -->
             </div> <!-- end tags -->
@@ -372,12 +364,25 @@
                     <h4>Quick Links</h4>
 
                     <ul class="s-footer__linklist">
-                        <li><a href="#0">Home</a></li>
-                        <li><a href="#0">Blog</a></li>
-                        <li><a href="#0">Styles</a></li>
-                        <li><a href="#0">About</a></li>
-                        <li><a href="#0">Contact</a></li>
-                        <li><a href="#0">Privacy Policy</a></li>
+                        <li><a href="">Home</a></li>
+                        <li><a href="#0">Blog</a>
+                            {% for post in posts %}
+                            <ul class="sub-men">
+                            {% if post.id_num == '001' %}<li><a href="/audio">{{ post.title }}</a></li>
+                            {% endif %}
+                            {% if post.id_num == '002' %}<li><a href="/gallery">{{ post.title }}</a></li>
+                            {% endif %}
+                            {% if post.id_num == '' %}<li><a href="/video">{{ post.title }}</a></li>
+                            {% endif %}
+                            {% if post.id_num == '' %}<li><a href="/standard">{{ post.title }}</a></li>
+                            {% endif %}
+                            </ul>
+                            {% endfor %}
+                        </li>
+                        <!--li --><!-- a href="#0">Styles</a><--/li-->
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <!-- li --><!-- a href="#0">Privacy Policy</a><--/li-->
                     </ul>
 
                 </div> <!-- end s-footer__sitelinks -->
@@ -416,7 +421,7 @@
                         
                     <h4>Our Newsletter</h4>
 
-                    <p>Sit vel delectus amet officiis repudiandae est voluptatem. Tempora maxime provident nisi et fuga et enim exercitationem ipsam. Culpa consequatur occaecati.</p>
+                    <p>Subscribe to our newsletter down below.</p>
 
                     <div class="subscribe-form">
                         <form id="mc-form" class="group" novalidate="true">
@@ -439,8 +444,8 @@
             <div class="row">
                 <div class="col-full">
                     <div class="s-footer__copyright">
-                        <span>© Copyright BlogChain.</span> 
-                        <span>Site by<a href="https://colorlib.com/">SharingInc.</a></span>
+                        <span>© Copyright BlogChain</span> 
+                        <span>Site by <a href="">SharingInc.</a></span>
                     </div>
 
                     <div class="go-top">
@@ -451,7 +456,6 @@
         </div> <!-- end s-footer__bottom -->
 
     </footer> <!-- end s-footer -->
-
 
     <!-- preloader
     ================================================== -->

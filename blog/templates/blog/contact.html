@@ -38,11 +38,11 @@
     ================================================== -->
     <div class="s-pageheader">
 
-        <header class="header">
+       <header class="header">
             <div class="header__content row">
 
                 <div class="header__logo">
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="/">
                         <img src="{% static 'blog/images/logo.png' %}" alt="Homepage">
                     </a>
                 </div> <!-- end header__logo -->
@@ -55,7 +55,7 @@
                         <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://instagram.com/sharingincorporated"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                     </li>
                     <li>
                         <a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
@@ -86,28 +86,30 @@
                     <h2 class="header__nav-heading h6">Site Navigation</h2>
 
                     <ul class="header__nav">
-                        <li><a href="" title="">Home</a></li>
-                        <li class="has-children">
-                            <a href="#0" title="">Categories</a>
-                            <ul class="sub-menu">
+                        <li><a href="/" title="">Home</a></li>
+                        <!--li class="has-children">
+                            <--a href="/category" title="">Categories</a-->
+                            <!--ul class="sub-menu">
                             <li><a href="/category">Lifestyle</a></li>
                             <li><a href="/category">Health</a></li>
                             <li><a href="/category">Family</a></li>
                             <li><a href="/category">Management</a></li>
                             <li><a href="/category">Travel</a></li>
                             <li><a href="/category">Work</a></li>
-                            </ul>
-                        </li>
+                       <--/ul-->
+                        <!--/li-->
                         <li class="has-children">
                             <a href="#0" title="">Blog</a>
                             <ul class="sub-menu">
-                            <li><a href="single-video.html">Video Post</a></li>
-                            <li><a href="single-audio.html">Audio Post</a></li>
-                            <li><a href="single-gallery.html">Gallery Post</a></li>
-                            <li><a href="single-standard.html">Standard Post</a></li>
+                                {% for post in posts %}
+                            {% if post.id_num == '001' %}<li><a href="/audio">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '002' %}<li><a href="/gallery">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '' %}<li><a href="/standard">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '' %}<li><a href="/video">{{ post.title }}</a></li>{% endif %}
+                                {% endfor %}
                             </ul>
                         </li>
-                        <li><a href="style-guide.html" title="">Styles</a></li>
+                        <!--li><a href="style-guide.html" title="">Styles</a></li--> <!-- page to be removed -->
                         <li><a href="/about" title="">About</a></li>
                         <li class="current"><a href="/contact" title="">Contact</a></li>
                     </ul> <!-- end header__nav -->
@@ -143,11 +145,7 @@
             </div> <!-- end s-content__header -->
     
             <div class="s-content__media col-full">
-                <div id="map-wrap">
-                    <div id="map-container"></div>
-                    <div id="map-zoom-in"></div>
-                    <div id="map-zoom-out"></div>
-                </div> 
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0011016336716!2d77.36986691503617!3d28.629729082418905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce551491b3ce7%3A0x7335d9fcfd4d9db0!2sJAYPEE%20INSTITUTE%20OF%20INFORMATION%20TECHNOLOGY!5e0!3m2!1sen!2sin!4v1620899712323!5m2!1sen!2sin" width="1000" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div> <!-- end s-content__media -->
 
             <div class="col-full s-content__main">
@@ -160,23 +158,22 @@
                 <div class="row">
                     <div class="col-six tab-full">
                         <h3>Where to Find Us</h3>
-
+                        {% for info in info %}
                         <p>
-                        1600 Amphitheatre Parkway<br>
-                        Mountain View, CA<br>
-                        94043 US
+                        {{ info.address }}
                         </p>
+                        {% endfor %}
 
                     </div>
 
                     <div class="col-six tab-full">
                         <h3>Contact Info</h3>
-
-                        <p>contact@philosophywebsite.com<br>
-                        info@philosophywebsite.com <br>
-                        Phone: (+1) 123 456
+                        {% for info in info %}
+                        <p>{{ info.email }}<br>
+                        {{ info.website }} <br>
+                        Phone: {{ info.phone }}
                         </p>
-
+                        {% endfor %}
                     </div>
                 </div> <!-- end row -->
 
@@ -223,76 +220,72 @@
 
             <div class="col-eight md-six tab-full popular">
                 <h3>Popular Posts</h3>
-
                 <div class="block-1-2 block-m-full popular__posts">
+                    {% for post in posts %}
+                    {% if post.id_num == '001' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/wheel-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">Visiting Theme Parks Improves Your Health.</a></h5>
+                        <h5><a href="#0">{{ post.title }}</a></h5>
                         <section class="popular__meta">
-                                <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">Dec 19, 2017</time></span>
+                                <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
                         </section>
                     </article>
+                    {% endif %}
+
+                    {% if post.id_num == '002' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/shutterbug-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">Key Benefits Of Family Photography.</a></h5>
+                       <h5><a href="#0">{{ post.title }}</a></h5>
                         <section class="popular__meta">
-                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-18">Dec 18, 2017</time></span>
+                                <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
                         </section>
                     </article>
+                    {% endif %}
+
+                    {% if post.id_num == '' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="{% static 'blo/images/thumbs/small/cookies-150.jpg' %}" alt="">
+                            <img src="{% static 'blog/images/thumbs/small/cookies-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">Absolutely No Sugar Oatmeal Cookies.</a></h5>
+                        <h5><a href="#0">{{ post.title }}</a></h5>
                         <section class="popular__meta">
-                                <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-16">Dec 16, 2017</time></span>
+                                <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
                         </section>
                     </article>
+                    {% endif %}
+
+                    {% if post.id_num == '' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="{% static 'blog/images/thumbs/small/beetle-150.jpg' %}" alt="">
+                            <img src="images/thumbs/small/beetle-150.jpg" alt="">
                         </a>
-                        <h5><a href="#0">Throwback To The Good Old Days.</a></h5>
+                        <h5><a href="#0">{{ post.title }}</a></h5>
                         <section class="popular__meta">
-                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-16">Dec 16, 2017</time></span>
+                                <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
                         </section>
                     </article>
-                    <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
-                            <img src="{% static 'blog/images/thumbs/small/tulips-150.jpg' %}" alt="">
-                        </a>
-                        <h5><a href="#0">10 Interesting Facts About Caffeine.</a></h5>
-                        <section class="popular__meta">
-                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-14">Dec 14, 2017</time></span>
-                        </section>
-                    </article>
-                    <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
-                            <img src="{% static 'blog/images/thumbs/small/salad-150.jpg' %}" alt="">
-                        </a>
-                        <h5><a href="#0">Healthy Mediterranean Salad Recipes</a></h5>
-                        <section class="popular__meta">
-                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-12">Dec 12, 2017</time></span>
-                        </section>
-                    </article>
+                    {% endif %}
+                    {% endfor %}
                 </div> <!-- end popular_posts -->
             </div> <!-- end popular -->
             
             <div class="col-four md-six tab-full about">
-                <h3>About Philosophy</h3>
+                <h3>About Us.</h3>
 
                 <p>
-                Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Pellentesque in ipsum id orci porta dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
+                {% for info in info %}
+                
+                {{ info.about_us }}
+
+                {% endfor %}
                 </p>
 
                 <ul class="about__social">
@@ -318,18 +311,17 @@
                 <h3>Tags</h3>
 
                 <div class="tagcloud">
-                    <a href="#0">Salad</a>
-                    <a href="#0">Recipe</a>
-                    <a href="#0">Places</a>
-                    <a href="#0">Tips</a>
-                    <a href="#0">Friends</a>
-                    <a href="#0">Travel</a>
-                    <a href="#0">Exercise</a>
-                    <a href="#0">Reading</a>
-                    <a href="#0">Running</a>
-                    <a href="#0">Self-Help</a>
+                    <a href="#0">Crypto</a>
+                    <a href="#0">Trade</a>
+                    <a href="#0">Sports</a>
+                    <a href="#0">Literature</a>
+                    <a href="#0">Equities</a>
+                    <a href="#0">Author's take</a>
+                    <a href="#0">Blockchain</a>
+                    <a href="#0">Tech</a>
+                    <a href="#0">Finance</a>
+                    <a href="#0">Investment</a>
                     <a href="#0">Vacation</a>
-                </div> <!-- end tagcloud -->
             </div> <!-- end tags -->
         </div> <!-- end tags-wrap -->
 
@@ -348,12 +340,10 @@
                     <h4>Quick Links</h4>
 
                     <ul class="s-footer__linklist">
-                        <li><a href="#0">Home</a></li>
-                        <li><a href="#0">Blog</a></li>
-                        <li><a href="#0">Styles</a></li>
-                        <li><a href="#0">About</a></li>
-                        <li><a href="#0">Contact</a></li>
-                        <li><a href="#0">Privacy Policy</a></li>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
 
                 </div> <!-- end s-footer__sitelinks -->
@@ -379,7 +369,7 @@
 
                     <ul class="s-footer__linklist">
                         <li><a href="#0">Facebook</a></li>
-                        <li><a href="#0">Instagram</a></li>
+                        <li><a href="https://instagram.com/sharingincorporated">Instagram</a></li>
                         <li><a href="#0">Twitter</a></li>
                         <li><a href="#0">Pinterest</a></li>
                         <li><a href="#0">Google+</a></li>
@@ -392,7 +382,7 @@
                         
                     <h4>Our Newsletter</h4>
 
-                    <p>Sit vel delectus amet officiis repudiandae est voluptatem. Tempora maxime provident nisi et fuga et enim exercitationem ipsam. Culpa consequatur occaecati.</p>
+                    <p>Subscribe to our newsletter.</p>
 
                     <div class="subscribe-form">
                         <form id="mc-form" class="group" novalidate="true">

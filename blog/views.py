@@ -1,15 +1,17 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import Post, PostPage, Contact
+from .models import Post, PostPage, Contact, Info
 from django.contrib import messages
 
 
 # Create your views here.
 
-postcontent = {'content': PostPage.objects.all()} # post pages dictionary
+context = { 'posts': Post.objects.all(),
+			'info': Info.objects.all(),
+			'content': PostPage.objects.all()} 
 
 def index(request):
-	context = {'posts': Post.objects.all()} # post summaries dictionary
+	 # post summaries dictionary
 	return render(request, 'blog/index.html', context)
 
 def about(request):
@@ -26,22 +28,22 @@ def contact(request):
 		contact.save()
 		messages.success(request, 'Message sent!')
 
-	return render(request, 'blog/contact.html')
+	return render(request, 'blog/contact.html', context)
 
 def category(request):
 	return render(request, 'blog/category.html')
 
 def audio(request):
-	return render(request, 'blog/single-audio.html', postcontent)
+	return render(request, 'blog/single-audio.html', context)
 
 def gallery(request):
-	return render(request, 'blog/single-gallery.html', postcontent)
+	return render(request, 'blog/single-gallery.html', context)
 
 def video(request):
-	return render(request, 'blog/single-video.html', postcontent)
+	return render(request, 'blog/single-video.html', context)
+
+def standard(request):
+	return render(request, 'blog/single-standard.html', context)
 
 #def guide(request):
 #	return render(request, 'blog/style-guide.html', postcontent)
-
-def standard(request):
-	return render(request, 'blog/single-standard.html', postcontent)

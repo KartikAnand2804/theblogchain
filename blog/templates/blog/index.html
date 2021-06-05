@@ -28,8 +28,8 @@
 
     <!-- favicons
     ================================================== -->
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'blog/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'blog/favicon.ico' %}" type="image/x-icon">
 </head>
 
 <body id="top">
@@ -40,7 +40,7 @@
             <div class="header__content row">
 
                 <div class="header__logo">
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="/">
                         <img src="{% static 'blog/images/logo.png' %}" alt="Homepage">
                     </a>
                 </div> <!-- end header__logo -->
@@ -53,7 +53,7 @@
                         <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://instagram.com/sharingincorporated"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                     </li>
                     <li>
                         <a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
@@ -85,27 +85,29 @@
 
                     <ul class="header__nav">
                         <li class="current"><a href="/" title="">Home</a></li>
-                        <li class="has-children">
-                            <a href="#0" title="">Categories</a>
-                            <ul class="sub-menu">
+                        <!--li class="has-children">
+                            <--a href="/category" title="">Categories</a-->
+                            <!--ul class="sub-menu">
                             <li><a href="/category">Lifestyle</a></li>
                             <li><a href="/category">Health</a></li>
                             <li><a href="/category">Family</a></li>
                             <li><a href="/category">Management</a></li>
                             <li><a href="/category">Travel</a></li>
                             <li><a href="/category">Work</a></li>
-                       </ul>
-                        </li>
+                       <--/ul-->
+                        <!--/li-->
                         <li class="has-children">
                             <a href="#0" title="">Blog</a>
                             <ul class="sub-menu">
-                            <li><a href="single-video.html">Video Post</a></li>
-                            <li><a href="single-audio.html">Audio Post</a></li>
-                            <li><a href="single-gallery.html">Gallery Post</a></li>
-                            <li><a href="single-standard.html">Standard Post</a></li>
+                                {% for post in posts %}
+                            {% if post.id_num == '001' %}<li><a href="/audio">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '002' %}<li><a href="/gallery">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '' %}<li><a href="/standard">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '' %}<li><a href="/video">{{ post.title }}</a></li>{% endif %}
+                                {% endfor %}
                             </ul>
                         </li>
-                        <li><a href="style-guide.html" title="">Styles</a></li>
+                        <!--li><a href="style-guide.html" title="">Styles</a></li--> <!-- page to be removed -->
                         <li><a href="/about" title="">About</a></li>
                         <li><a href="/contact" title="">Contact</a></li>
                     </ul> <!-- end header__nav -->
@@ -129,13 +131,16 @@
 
                 <div class="featured">
 
+                    
                     <div class="featured__column featured__column--big">
                         <div class="entry" style="background-image:url({% static 'blog/images/thumbs/featured/featured-guitarman.jpg' %});">
                             
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">Music</a></span>
+                                <span class="entry__category"><a href="#0">Crypto</a></span>
+                    {% for post in posts %}
+                    {% if post.id_num == '001' %}
 
-                                <h1><a href="#0" title="">What Your Music Preference Says About You and Your Personality.</a></h1>
+                                <h1><a href="/audio" title="">{{ post.title }}</a></h1>
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
@@ -143,23 +148,26 @@
                                     </a>
 
                                     <ul class="entry__meta">
-                                        <li><a href="#0">John Doe</a></li>
-                                        <li>December 29, 2017</li>
+                                        <li><a href="#0">{{ post.author }}</a></li>
+                                        <li>{{ post.date_posted }}</li>
                                     </ul>
                                 </div>
                             </div> <!-- end entry__content -->
                             
                         </div> <!-- end entry -->
                     </div> <!-- end featured__big -->
+                    {% endif %}
+                    {% endfor %}
 
                     <div class="featured__column featured__column--small">
 
-                        <div class="entry" style="background-image:url({% static 'blog/images/thumbs/featured/featured-watch.jpg' %});">
+                        <div class="entry" style="background-image:url({% static 'blog/images/thumbs/featured/blog1img.jpg' %});">
                             
                             <div class="entry__content">
                                 <span class="entry__category"><a href="#0">Management</a></span>
-
-                                <h1><a href="#0" title="">The Pomodoro Technique Really Works.</a></h1>
+                    {% for post in posts %}
+                    {% if post.id_num == '002' %}
+                                <h1><a href="#0" title="">{{ post.title }}</a></h1>
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
@@ -167,20 +175,23 @@
                                     </a>
 
                                     <ul class="entry__meta">
-                                        <li><a href="#0">John Doe</a></li>
-                                        <li>December 27, 2017</li>
+                                        <li><a href="#0">{{ post.author }}</a></li>
+                                        <li>{{ post.date_posted }}</li>
                                     </ul>
                                 </div>
                             </div> <!-- end entry__content -->
                           
                         </div> <!-- end entry -->
+                    {% endif %}
+                    {% endfor %}
 
                         <div class="entry" style="background-image:url({% static 'blog/images/thumbs/featured/featured-beetle.jpg' %});">
 
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">LifeStyle</a></span>
-
-                                <h1><a href="#0" title="">Throwback To The Good Old Days.</a></h1>
+                                <span class="entry__category"><a href="#0">Author's take</a></span>
+                    {% for post in posts %}
+                    {% if post.id_num == '' %}
+                                <h1><a href="#0" title="">{{ post.title }}</a></h1>
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
@@ -188,13 +199,16 @@
                                     </a>
 
                                     <ul class="entry__meta">
-                                        <li><a href="#0">John Doe</a></li>
-                                        <li>December 21, 2017</li>
+                                        <li><a href="#0">{{ post.author }}</a></li>
+                                        <li>{{ post.date_posted }}</li>
                                     </ul>
                                 </div>
                             </div> <!-- end entry__content -->
 
                         </div> <!-- end entry -->
+                    {% endif %}
+                    {% endfor %}
+
 
                     </div> <!-- end featured__small -->
                 </div> <!-- end featured -->
@@ -218,21 +232,21 @@
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
                         
                     <div class="entry__thumb">
-                        <a href="single-standard.html" class="entry__thumb-link">
+                        <a href="/audio" class="entry__thumb-link">
                             <img src="{% static 'blog/images/thumbs/masonry/lamp-400.jpg' %}" 
-                                     alt="">
+                                     alt="" href="/audio">
                         </a>
                     </div>
                     
                     {% for post in posts %}
-                    {% if post.title == 'When the State Decides to Hijack a Plane' %}
+                    {% if post.id_num == '001' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-standard.html">December 15, 2017</a>
+                                <a href="/audio">{{ post.date_posted }}</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h1>
+                            <h1 class="entry__title"><a href="/audio">{{ post.title }}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
@@ -261,10 +275,10 @@
                     <div class="entry__thumb">
                         <blockquote>
                                 <p>
-                                    Good design is making something intelligible and memorable. Great design is making something memorable and meaningful. 
+                                    I always knew I was going to be rich. I don't think I ever doubted it for a minute.
                                 </p>
     
-                                <cite>Dieter Rams</cite>
+                                <cite>Warren Buffet</cite>
                         </blockquote>
                     </div>   
     
@@ -273,21 +287,21 @@
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
                         
                     <div class="entry__thumb">
-                        <a href="single-standard.html" class="entry__thumb-link">
-                            <img src="{% static 'blog/images/thumbs/masonry/tulips-400.jpg' %}" 
-                                     alt="">
+                        <a href="/gallery" class="entry__thumb-link">
+                            <img src="{% static 'blog/images/thumbs/featured/blog1img.jpg' %}" 
+                                     alt="" href="/gallery">
                         </a>
                     </div>
 
                     {% for post in posts %}
-                    {% if post.title == '' %}
+                    {% if post.id_num == '002' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-standard.html">December 15, 2017</a>
+                                <a href="/gallery">{{ post.date_posted }}</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h1>
+                            <h1 class="entry__title"><a href="/gallery">{{ post.title }}</a></h1>
                        
                         </div>
                         <div class="entry__excerpt">
@@ -318,12 +332,12 @@
                     </div>
                     
                     {% for post in posts %}
-                    {% if post.title == '' %}
+                    {% if post.id_num == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-standard.html">December 10, 2017</a>
+                                <a href="single-standard.html">{{ post.date_posted }}</a>
                             </div>
                             <h1 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h1>
                             
@@ -359,12 +373,12 @@
                     
                     
                     {% for post in posts %}
-                    {% if post.title == '' %}
+                    {% if post.id_num == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-standard.html">December 10, 2017</a>
+                                <a href="single-standard.html">{{ post.date_posted }}</a>
                             </div>
                             <h1 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h1>
                             
@@ -397,12 +411,12 @@
                     </div>
                     
                     {% for post in posts %}
-                    {% if post.title == '' %}
+                    {% if post.id_num == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-video.html">December 10, 2017</a>
+                                <a href="single-video.html">{{ post.date_posted }}</a>
                             </div>
                             <h1 class="entry__title"><a href="single-video.html">{{ post.title }}</a></h1>
                             
@@ -444,12 +458,12 @@
                     </div>
         
                     {% for post in posts %}
-                    {% if post.title == '' %}
+                    {% if post.id_num == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-gallery.html">December 10, 2017</a>
+                                <a href="single-gallery.html">{{ post.date_posted }}</a>
                             </div>
                             <h1 class="entry__title"><a href="single-gallery.html">{{ post.title }}</a></h1>
                             
@@ -484,12 +498,12 @@
                     </div>
 
                     {% for post in posts %}
-                    {% if post.title == '' %}
+                    {% if post.id_num == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-audio.html">December 10, 2017</a>
+                                <a href="single-audio.html">{{ post.date_posted }}</a>
                             </div>
                             <h1 class="entry__title"><a href="single-audio.html">{{ post.title }}</a></h1>
                             
@@ -515,9 +529,9 @@
                     
                     <div class="entry__thumb">
                         <div class="link-wrap">
-                            <p>The Only Resource You Will Need To Start a Blog Using WordPress.</p>
+                            <p>Visit and learn about us at.</p>
                             <cite>
-                                <a target="_blank" href="https://colorlib.com/">https://colorlib.com</a>
+                                <a target="_blank" href="https://sharinginc.github.io/SharingInc/">SharingInc.</a>
                             </cite>
                         </div>
                     </div>
@@ -534,12 +548,12 @@
                     </div>
 
                     {% for post in posts %}
-                    {% if post.title == '' %}
+                    {% if post.id_num == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-standard.html">December 10, 2017</a>
+                                <a href="single-standard.html">{{ post.date_posted }}</a>
                             </div>
                             <h1 class="entry__title"><a href="single-standard.html">{{post.title}}</a></h1>
                             
@@ -571,12 +585,12 @@
                     </div>
 
                     {% for post in posts %}
-                    {% if post.title == '' %}
+                    {% if post.id_num == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-standard.html">December 10, 2017</a>
+                                <a href="single-standard.html">{{ post.date_posted }}</a>
                             </div>
                             <h1 class="entry__title"><a href="single-standard.html">{{post.title}}</a></h1>
                             
@@ -607,12 +621,12 @@
                     </div>
 
                     {% for post in posts %}
-                    {% if post.title == '' %}
+                    {% if post.id_num == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-standard.html">December 10, 2017</a>
+                                <a href="single-standard.html">{{ post.date_posted }}</a>
                             </div>
                             <h1 class="entry__title"><a href="single-standard.html">{{post.title}}</a></h1>
                             
@@ -644,12 +658,12 @@
                     </div>
 
                     {% for post in posts %}
-                    {% if post.title == '' %}
+                    {% if post.id_num == '' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-standard.html">December 10, 2017</a>
+                                <a href="single-standard.html">{{ post.date_posted }}</a>
                             </div>
                             <h1 class="entry__title"><a href="single-standard.html">{{post.title}}</a></h1>
                             
@@ -679,8 +693,8 @@
                 <nav class="pgn">
                     <ul>
                         <li><a class="pgn__prev" href="#0">Prev</a></li>
-                        <li><a class="pgn__num" href="#0">1</a></li>
-                        <li><span class="pgn__num current">2</span></li>
+                        <li><span class="pgn__num current">1</span></li>
+                        <li><a class="pgn__num" href="#0">2</a></li>
                         <li><a class="pgn__num" href="#0">3</a></li>
                         <li><a class="pgn__num" href="#0">4</a></li>
                         <li><a class="pgn__num" href="#0">5</a></li>
@@ -703,68 +717,60 @@
 
             <div class="col-eight md-six tab-full popular">
                 <h3>Popular Posts</h3>
-
                 <div class="block-1-2 block-m-full popular__posts">
+{% for post in posts %}
+                    {% if post.id_num == '001' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/wheel-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">Visiting Theme Parks Improves Your Health.</a></h5>
+                        <h5><a href="#0">{{ post.title }}</a></h5>
                         <section class="popular__meta">
-                                <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">Dec 19, 2017</time></span>
+                                <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
                         </section>
                     </article>
+                    {% endif %}
+
+                    {% if post.id_num == '002' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/shutterbug-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">Key Benefits Of Family Photography.</a></h5>
+                       <h5><a href="#0">{{ post.title }}</a></h5>
                         <section class="popular__meta">
-                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-18">Dec 18, 2017</time></span>
+                                <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
                         </section>
                     </article>
+                    {% endif %}
+
+                    {% if post.id_num == '' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/cookies-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">Absolutely No Sugar Oatmeal Cookies.</a></h5>
+                        <h5><a href="#0">{{ post.title }}</a></h5>
                         <section class="popular__meta">
-                                <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-16">Dec 16, 2017</time></span>
+                                <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
                         </section>
                     </article>
+                    {% endif %}
+
+                    {% if post.id_num == '' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
                             <img src="images/thumbs/small/beetle-150.jpg" alt="">
                         </a>
-                        <h5><a href="#0">Throwback To The Good Old Days.</a></h5>
+                        <h5><a href="#0">{{ post.title }}</a></h5>
                         <section class="popular__meta">
-                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-16">Dec 16, 2017</time></span>
+                                <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
+                            <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
                         </section>
                     </article>
-                    <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
-                            <img src="{% static 'blog/images/thumbs/small/tulips-150.jpg' %}" alt="">
-                        </a>
-                        <h5><a href="#0">10 Interesting Facts About Caffeine.</a></h5>
-                        <section class="popular__meta">
-                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-14">Dec 14, 2017</time></span>
-                        </section>
-                    </article>
-                    <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
-                            <img src="{% static 'blog/images/thumbs/small/salad-150.jpg' %}" alt="">
-                        </a>
-                        <h5><a href="#0">Healthy Mediterranean Salad Recipes</a></h5>
-                        <section class="popular__meta">
-                            <span class="popular__author"><span>By</span> <a href="#0"> John Doe</a></span>
-                            <span class="popular__date"><span>on</span> <time datetime="2017-12-12">Dec 12, 2017</time></span>
-                        </section>
-                    </article>
+                    {% endif %}
+                    {% endfor %}
                 </div> <!-- end popular_posts -->
             </div> <!-- end popular -->
             
@@ -772,7 +778,11 @@
                 <h3>About Us.</h3>
 
                 <p>
-                Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Pellentesque in ipsum id orci porta dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
+                {% for info in info %}
+                
+                {{ info.about_us }}
+
+                {% endfor %}
                 </p>
 
                 <ul class="about__social">
@@ -798,18 +808,17 @@
                 <h3>Tags</h3>
 
                 <div class="tagcloud">
-                    <a href="#0">Salad</a>
-                    <a href="#0">Recipe</a>
-                    <a href="#0">Places</a>
-                    <a href="#0">Tips</a>
-                    <a href="#0">Friends</a>
-                    <a href="#0">Travel</a>
-                    <a href="#0">Exercise</a>
-                    <a href="#0">Reading</a>
-                    <a href="#0">Running</a>
-                    <a href="#0">Self-Help</a>
+                    <a href="#0">Crypto</a>
+                    <a href="#0">Trade</a>
+                    <a href="#0">Sports</a>
+                    <a href="#0">Literature</a>
+                    <a href="#0">Equities</a>
+                    <a href="#0">Author's take</a>
+                    <a href="#0">Blockchain</a>
+                    <a href="#0">Tech</a>
+                    <a href="#0">Finance</a>
+                    <a href="#0">Investment</a>
                     <a href="#0">Vacation</a>
-                </div> <!-- end tagcloud -->
             </div> <!-- end tags -->
         </div> <!-- end tags-wrap -->
 
@@ -829,11 +838,24 @@
 
                     <ul class="s-footer__linklist">
                         <li><a href="">Home</a></li>
-                        <li><a href="#0">Blog</a></li>
-                        <li><a href="#0">Styles</a></li>
+                        <li><a href="#0">Blog</a>
+                            {% for post in posts %}
+                            <ul class="sub-men">
+                            {% if post.id_num == '001' %}<li><a href="/audio">{{ post.title }}</a></li>
+                            {% endif %}
+                            {% if post.id_num == '002' %}<li><a href="/gallery">{{ post.title }}</a></li>
+                            {% endif %}
+                            {% if post.id_num == '' %}<li><a href="/video">{{ post.title }}</a></li>
+                            {% endif %}
+                            {% if post.id_num == '' %}<li><a href="/standard">{{ post.title }}</a></li>
+                            {% endif %}
+                            </ul>
+                            {% endfor %}
+                        </li>
+                        <!--li --><!-- a href="#0">Styles</a><--/li-->
                         <li><a href="/about">About</a></li>
                         <li><a href="/contact">Contact</a></li>
-                        <li><a href="#0">Privacy Policy</a></li>
+                        <!-- li --><!-- a href="#0">Privacy Policy</a><--/li-->
                     </ul>
 
                 </div> <!-- end s-footer__sitelinks -->
@@ -872,7 +894,7 @@
                         
                     <h4>Our Newsletter</h4>
 
-                    <p>Subscribe to our newsletter down below.</p>
+                    <p>Subscribe to our newsletter.</p>
 
                     <div class="subscribe-form">
                         <form id="mc-form" class="group" novalidate="true">

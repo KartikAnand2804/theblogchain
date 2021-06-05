@@ -3,18 +3,32 @@ from django.utils import timezone
 from django.contrib.auth.models import User 
 
 # Create your models here.
+# general information 
+class Info(models.Model):
+	name = models.CharField(max_length=100, default="SharingInc.")
+	email = models.EmailField(default="sharinginc.work@gmail.com")
+	website = models.CharField(max_length=200, default="https://sharinginc.github.io/SharingInc/")
+	about_us = models.TextField(default="about us content.")
+	phone = models.CharField(max_length=10, default="9999999999")
+	address = models.CharField(max_length=400, default="address content.")
+
+	def __str__(self):
+		return self.name
 
 # post summary diplayed on the page index.html 
 class Post(models.Model):
+	id_num = models.CharField(max_length=3, default='000')
 	title = models.CharField(max_length=100)
 	content = models.TextField()
 	date_posted = models.DateTimeField(default=timezone.now)
+	author = models.CharField(max_length=100, default=User)
 
 	def __str__(self):
 		return self.title
 
 # blog posts in all the blog pages 
 class PostPage(models.Model):
+	id_num = models.CharField(max_length=3, default='000')
 	title = models.CharField(max_length=200, default='title' )
 	author = models.CharField(max_length=100, default=User) #change it to the current logged in user
 	introduction = models.TextField(default='Type your introduction here ...')
