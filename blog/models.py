@@ -18,6 +18,7 @@ class Info(models.Model):
 # post summary diplayed on the page index.html 
 class Post(models.Model):
 	id_num = models.CharField(max_length=3, default='000')
+	tag = models.CharField(max_length=100, default='tag name')
 	title = models.CharField(max_length=100)
 	content = models.TextField()
 	date_posted = models.DateTimeField(default=timezone.now)
@@ -29,6 +30,7 @@ class Post(models.Model):
 # blog posts in all the blog pages 
 class PostPage(models.Model):
 	id_num = models.CharField(max_length=3, default='000')
+	tag = models.CharField(max_length=100, default='tag name')
 	title = models.CharField(max_length=200, default='title' )
 	author = models.CharField(max_length=100, default=User) #change it to the current logged in user
 	introduction = models.TextField(default='Type your introduction here ...')

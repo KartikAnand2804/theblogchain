@@ -164,7 +164,7 @@
                         <div class="entry" style="background-image:url({% static 'blog/images/thumbs/featured/blog1img.jpg' %});">
                             
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">Management</a></span>
+                                <span class="entry__category"><a href="#0">Author's take</a></span>
                     {% for post in posts %}
                     {% if post.id_num == '002' %}
                                 <h1><a href="#0" title="">{{ post.title }}</a></h1>
@@ -188,7 +188,7 @@
                         <div class="entry" style="background-image:url({% static 'blog/images/thumbs/featured/featured-beetle.jpg' %});">
 
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">Author's take</a></span>
+                                <span class="entry__category"><a href="#0">Management</a></span>
                     {% for post in posts %}
                     {% if post.id_num == '' %}
                                 <h1><a href="#0" title="">{{ post.title }}</a></h1>
@@ -258,8 +258,7 @@
                         </div>
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="category.html">Design</a> 
-                                <a href="category.html">Photography</a>
+                                <a href="#0">{{ post.tag }}</a> 
                             </span>
                         </div>
                     </div>
@@ -313,7 +312,7 @@
                         </div>
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="category.html">Health</a>
+                                <a href="#0">{{ post.tag }}</a>
                             </span>
                         </div>
                     </div>
@@ -353,8 +352,7 @@
                         </div>
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="category.html">Cooking</a>
-                                <a href="category.html">Health</a>
+                                <a href="#0">{{ post.tag }}</a>
                             </span>
                         </div>
                     </div>
@@ -392,8 +390,7 @@
                         </div>
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="#">Health</a> 
-                                <a href="#">Lifestyle</a>
+                                <a href="#0">{{ post.tag }}</a>
                             </span>
                         </div>
                     </div>
@@ -428,8 +425,7 @@
                         </div>
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="category.html">Family</a> 
-                                <a href="category.html">Photography</a>
+                                <a href="#0">{{ post.tag }}</a>
                             </span>
                         </div>
                     </div>
@@ -475,8 +471,7 @@
                         </div>
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="category.html">Work</a> 
-                                <a href="category.html">Management</a>
+                                <a href="#0">{{ post.tag }}</a>
                             </span>
                         </div>
                     </div>
@@ -515,8 +510,7 @@
                         </div>
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="category.html">Music</a> 
-                                <a href="category.html">Lifestyle</a>
+                                <a href="#0">{{ post.tag }}</a>
                             </span>
                         </div>
                     </div>
@@ -565,8 +559,7 @@
                         </div>
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="category.html">Family</a>
-                                <a href="category.html">Relationship</a>
+                                <a href="#0">{{ post.tag }}</a>
                             </span>
                         </div>
                     </div>
@@ -602,7 +595,7 @@
                         </div>
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="category.html">Lifestyle</a>
+                                <a href="#0">{{ post.tag }}</a>
                             </span>
                         </div>
                     </div>
@@ -638,8 +631,7 @@
                         </div>
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="category.html">Design</a> 
-                                <a href="category.html">Photography</a>
+                                <a href="#0">{{ post.tag }}</a>
                             </span>
                         </div>
                     </div>
@@ -675,8 +667,7 @@
                         </div>
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="category.html">Travel</a> 
-                                <a href="category.html">Vacation</a>
+                                <a href="#0">{{ post.tag }}</a>
                             </span>
                         </div>
                     </div>
