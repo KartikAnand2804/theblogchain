@@ -15,7 +15,7 @@ def index(request):
 	return render(request, 'blog/index.html', context)
 
 def about(request):
-	return render(request, 'blog/about.html')
+	return render(request, 'blog/about.html', context)
 
 def contact(request):
 	if request.method == 'POST':	
@@ -31,7 +31,7 @@ def contact(request):
 	return render(request, 'blog/contact.html', context)
 
 def category(request):
-	return render(request, 'blog/category.html')
+	return render(request, 'blog/category.html', context)
 
 def audio(request):
 	return render(request, 'blog/single-audio.html', context)

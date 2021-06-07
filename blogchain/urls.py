@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', blog_views.about, name='about'),
     path('contact/', blog_views.contact, name='contact'),
-    path('category/', blog_views.about, name='category'),
+    path('category/', blog_views.category, name='category'),
     path('register/', user_views.register, name='register'),
     path('audio/', blog_views.audio, name='audio'),
     path('gallery/', blog_views.gallery, name='gallery'),

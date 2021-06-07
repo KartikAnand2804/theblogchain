@@ -102,8 +102,9 @@
                                 {% for post in posts %}
                             {% if post.id_num == '001' %}<li><a href="/audio">{{ post.title }}</a></li>{% endif %}
                             {% if post.id_num == '002' %}<li><a href="/gallery">{{ post.title }}</a></li>{% endif %}
-                            {% if post.id_num == '' %}<li><a href="/standard">{{ post.title }}</a></li>{% endif %}
-                            {% if post.id_num == '' %}<li><a href="/video">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '003' %}<li><a href="/standard">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '004' %}<li><a href="/video">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '005' %}<li><a href="/category">{{ post.title }}</a></li>{% endif %}
                                 {% endfor %}
                             </ul>
                         </li>
@@ -167,7 +168,7 @@
                                 <span class="entry__category"><a href="#0">Author's take</a></span>
                     {% for post in posts %}
                     {% if post.id_num == '002' %}
-                                <h1><a href="#0" title="">{{ post.title }}</a></h1>
+                                <h1><a href="/gallery" title="">{{ post.title }}</a></h1>
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
@@ -190,8 +191,8 @@
                             <div class="entry__content">
                                 <span class="entry__category"><a href="#0">Management</a></span>
                     {% for post in posts %}
-                    {% if post.id_num == '' %}
-                                <h1><a href="#0" title="">{{ post.title }}</a></h1>
+                    {% if post.id_num == '004' %}
+                                <h1><a href="/video" title="">{{ post.title }}</a></h1>
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
@@ -331,14 +332,14 @@
                     </div>
                     
                     {% for post in posts %}
-                    {% if post.id_num == '' %}
+                    {% if post.id_num == '003' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
                                 <a href="single-standard.html">{{ post.date_posted }}</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h1>
+                            <h1 class="entry__title"><a href="/standard">{{ post.title }}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
@@ -371,14 +372,14 @@
                     
                     
                     {% for post in posts %}
-                    {% if post.id_num == '' %}
+                    {% if post.id_num == '004' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-standard.html">{{ post.date_posted }}</a>
+                                <a href="/video">{{ post.date_posted }}</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h1>
+                            <h1 class="entry__title"><a href="/video">{{ post.title }}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
@@ -408,14 +409,14 @@
                     </div>
                     
                     {% for post in posts %}
-                    {% if post.id_num == '' %}
+                    {% if post.id_num == '005' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
                             <div class="entry__date">
                                 <a href="single-video.html">{{ post.date_posted }}</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-video.html">{{ post.title }}</a></h1>
+                            <h1 class="entry__title"><a href="#0">{{ post.title }}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
@@ -736,7 +737,7 @@
                     </article>
                     {% endif %}
 
-                    {% if post.id_num == '' %}
+                    {% if post.id_num == '003' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/cookies-150.jpg' %}" alt="">
@@ -749,7 +750,7 @@
                     </article>
                     {% endif %}
 
-                    {% if post.id_num == '' %}
+                    {% if post.id_num == '004' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
                             <img src="images/thumbs/small/beetle-150.jpg" alt="">
@@ -836,9 +837,11 @@
                             {% endif %}
                             {% if post.id_num == '002' %}<li><a href="/gallery">{{ post.title }}</a></li>
                             {% endif %}
-                            {% if post.id_num == '' %}<li><a href="/video">{{ post.title }}</a></li>
+                            {% if post.id_num == '003' %}<li><a href="/video">{{ post.title }}</a></li>
                             {% endif %}
-                            {% if post.id_num == '' %}<li><a href="/standard">{{ post.title }}</a></li>
+                            {% if post.id_num == '004' %}<li><a href="/standard">{{ post.title }}</a></li>
+                            {% endif %}
+                            {% if post.id_num == '005' %}<li><a href="/category">{{ post.title }}</a></li>
                             {% endif %}
                             </ul>
                             {% endfor %}

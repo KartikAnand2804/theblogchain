@@ -104,8 +104,9 @@
                                 {% for post in posts %}
                             {% if post.id_num == '001' %}<li><a href="/audio">{{ post.title }}</a></li>{% endif %}
                             {% if post.id_num == '002' %}<li><a href="/gallery">{{ post.title }}</a></li>{% endif %}
-                            {% if post.id_num == '' %}<li><a href="/standard">{{ post.title }}</a></li>{% endif %}
-                            {% if post.id_num == '' %}<li><a href="/video">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '003' %}<li><a href="/standard">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '004' %}<li><a href="/video">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '005' %}<li><a href="/category">{{ post.title }}</a></li>{% endif %}
                                 {% endfor %}
                             </ul>
                         </li>
@@ -150,9 +151,9 @@
 
             <div class="col-full s-content__main">
 
-                <p class="lead">Lorem ipsum Deserunt est dolore Ut Excepteur nulla occaecat magna occaecat Excepteur nisi esse veniam dolor consectetur minim qui nisi esse deserunt commodo ea enim ullamco non voluptate consectetur minim aliquip Ut incididunt amet ut cupidatat.</p>
+                <p class="lead">Since the inception of our services, we have always performed & attempted, to the best of our abilities, to deliver our clients with exceptional services at competitive rates. Regardless of whether you are looking for a professional finishing touch to your website, or looking to build one from scratch; whether you are in need of a graphic designer to visualise your projects, or content writers to describe your ideas eloquently; whether you desire a data analyst to crunch through those cumbersome numbers to provide you useful insights from the data; or you are just searching for some innovative art pieces to showcase the grandeur of your office and/or home to your friends & colleagues — Sharing Inc. is the one stop shop for your requirements.</p>
                 
-                <p>Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam dolor dolor irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui labore cillum sit in tempor veniam consequat non laborum adipisicing aliqua ea nisi sint ut quis proident ullamco ut dolore culpa occaecat ut laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.
+                <p>We at Sharing Inc., are logical & result-driven developers successfully developing elegant, ground-breaking projects & application designs for demanding clients with various business objectives. Talented in project management, team leadership & independent problem-solving, we are a highly organised group of multitasking individuals with a calm & focused demeanour, translating problems into solutions & working across many different platforms. Graphic designing & content writing are also a couple of fields in which we can provide fairly up to the mark & reasonable services. We are solution-driven professionals excelling in highly collaborative work environment, finding solutions to challenges & are focused on customer satisfaction.
                 </p>
 
                 <div class="row">
@@ -224,7 +225,7 @@
                     {% for post in posts %}
                     {% if post.id_num == '001' %}
                     <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
+                        <a href="/audio" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/wheel-150.jpg' %}" alt="">
                         </a>
                         <h5><a href="#0">{{ post.title }}</a></h5>
@@ -237,7 +238,7 @@
 
                     {% if post.id_num == '002' %}
                     <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
+                        <a href="/gallery" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/shutterbug-150.jpg' %}" alt="">
                         </a>
                        <h5><a href="#0">{{ post.title }}</a></h5>
@@ -248,9 +249,9 @@
                     </article>
                     {% endif %}
 
-                    {% if post.id_num == '' %}
+                    {% if post.id_num == '003' %}
                     <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
+                        <a href="/standard" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/cookies-150.jpg' %}" alt="">
                         </a>
                         <h5><a href="#0">{{ post.title }}</a></h5>
@@ -261,12 +262,12 @@
                     </article>
                     {% endif %}
 
-                    {% if post.id_num == '' %}
+                    {% if post.id_num == '004' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/beetle-150.jpg" alt="">
+                             <img src="{% static 'blog/images/thumbs/small/beetle-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">{{ post.title }}</a></h5>
+                        <h5><a href="/video">{{ post.title }}</a></h5>
                         <section class="popular__meta">
                                 <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
                             <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>

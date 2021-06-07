@@ -104,8 +104,9 @@
                                 {% for post in posts %}
                             {% if post.id_num == '001' %}<li><a href="/audio">{{ post.title }}</a></li>{% endif %}
                             {% if post.id_num == '002' %}<li><a href="/gallery">{{ post.title }}</a></li>{% endif %}
-                            {% if post.id_num == '' %}<li><a href="/standard">{{ post.title }}</a></li>{% endif %}
-                            {% if post.id_num == '' %}<li><a href="/video">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '003' %}<li><a href="/standard">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '004' %}<li><a href="/video">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '005' %}<li><a href="/category">{{ post.title }}</a></li>{% endif %}
                                 {% endfor %}
                             </ul>
                         </li>
@@ -157,13 +158,13 @@
                     <div class="col-block">
                         <h3 class="quarter-top-margin">Who We Are.</h3>
                         <p>An initiative taken up by a bunch of young individuals looking to do something productive in the information market, The BlogChain is a website, as must be clear from the name itself, for blogs.
-                        Now, you must be asking yourself (or you might not be, honestly the writer of this text couldn’t think of any other wording than this cliché as a conjunction on to the next point for some reason), blogs related to what exactly? The answer to this question cannot be limited to any one topic, just as the blogs you might be finding here in the future. News, technology, current affairs, art, literature, general knowledge, sports, anything we fancy we know a satisfactorily good deal about, will be penned down here.  However, primarily, as should once again be clear from the name itself, you will find all the tantalizing information, analysis, insights and developments we can provide to you, about the unimaginably vast new field the world has been tinkering with recently, the cryptocurrency space and the technology on which they work, blockchains.</p>
+                        Now, you must be asking yourself (or you might not be, honestly the writer of this text couldn’t think of any other wording than this cliché as a conjunction on to the next point for some reason), blogs related to what exactly? The answer to this question cannot be limited to any one topic, just as the blogs you might be finding here in the future. </p>
                     </div>
 
-                    <!--div class="col-block">
+                    <div class="col-block">
                         <h3 class="quarter-top-margin">Our Mission.</h3>
-                        <p>Lorem ipsum Nisi amet fugiat eiusmod et aliqua ad qui ut nisi Ut aute anim mollit fugiat qui sit ex occaecat et eu mollit nisi pariatur fugiat deserunt dolor veniam reprehenderit aliquip magna nisi consequat aliqua veniam in aute ullamco Duis laborum ad non pariatur sit.</p>
-                    </div-->
+                        <p>News, technology, current affairs, art, literature, general knowledge, sports, anything we fancy we know a satisfactorily good deal about, will be penned down here.  However, primarily, as should once again be clear from the name itself, you will find all the tantalizing information, analysis, insights and developments we can provide to you, about the unimaginably vast new field the world has been tinkering with recently, the cryptocurrency space and the technology on which they work, blockchains.</p>
+                    </div>
 
                     <div class="col-block">
                         <h3 class="quarter-top-margin">Our Vision.</h3>
@@ -195,10 +196,10 @@
             <div class="col-eight md-six tab-full popular">
                 <h3>Popular Posts</h3>
                 <div class="block-1-2 block-m-full popular__posts">
-{% for post in posts %}
+                    {% for post in posts %}
                     {% if post.id_num == '001' %}
                     <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
+                        <a href="/audio" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/wheel-150.jpg' %}" alt="">
                         </a>
                         <h5><a href="#0">{{ post.title }}</a></h5>
@@ -211,7 +212,7 @@
 
                     {% if post.id_num == '002' %}
                     <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
+                        <a href="/gallery" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/shutterbug-150.jpg' %}" alt="">
                         </a>
                        <h5><a href="#0">{{ post.title }}</a></h5>
@@ -222,9 +223,9 @@
                     </article>
                     {% endif %}
 
-                    {% if post.id_num == '' %}
+                    {% if post.id_num == '003' %}
                     <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
+                        <a href="/standard" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/cookies-150.jpg' %}" alt="">
                         </a>
                         <h5><a href="#0">{{ post.title }}</a></h5>
@@ -235,12 +236,12 @@
                     </article>
                     {% endif %}
 
-                    {% if post.id_num == '' %}
+                    {% if post.id_num == '004' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/beetle-150.jpg" alt="">
+                            <img src="{% static 'blog/images/thumbs/small/beetle-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">{{ post.title }}</a></h5>
+                        <h5><a href="/video">{{ post.title }}</a></h5>
                         <section class="popular__meta">
                                 <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
                             <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>

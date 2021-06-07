@@ -101,8 +101,9 @@
                                 {% for post in posts %}
                             {% if post.id_num == '001' %}<li><a href="/audio">{{ post.title }}</a></li>{% endif %}
                             {% if post.id_num == '002' %}<li><a href="/gallery">{{ post.title }}</a></li>{% endif %}
-                            {% if post.id_num == '' %}<li><a href="/standard">{{ post.title }}</a></li>{% endif %}
-                            {% if post.id_num == '' %}<li><a href="/video">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '003' %}<li><a href="/standard">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '004' %}<li><a href="/video">{{ post.title }}</a></li>{% endif %}
+                            {% if post.id_num == '005' %}<li><a href="/category">{{ post.title }}</a></li>{% endif %}
                                 {% endfor %}
                             </ul>
                         </li>
@@ -134,8 +135,7 @@
                     <li class="date">{{ content.date_posted }}</li>
                     <li class="cat">
                         In
-                        <a href="#0">Lifestyle</a>
-                        <a href="#0">Travel</a>
+                        <a href="#0">{{ content.tag }}</a>
                     </li>
                 </ul>
             </div> <!-- end s-content__header -->
@@ -193,10 +193,7 @@
                     <span>Post Tags</span>
 
                     <span class="s-content__tag-list">
-                        <a href="#0">orci</a>
-                        <a href="#0">lectus</a>
-                        <a href="#0">varius</a>
-                        <a href="#0">turpis</a>
+                        <a href="#0">{{ content.tag }}</a>
                     </span>
                 </p> <!-- end s-content__tags -->
 
@@ -259,7 +256,7 @@
                     {% for post in posts %}
                     {% if post.id_num == '001' %}
                     <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
+                        <a href="/audio" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/wheel-150.jpg' %}" alt="">
                         </a>
                         <h5><a href="#0">{{ post.title }}</a></h5>
@@ -272,7 +269,7 @@
 
                     {% if post.id_num == '002' %}
                     <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
+                        <a href="/gallery" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/shutterbug-150.jpg' %}" alt="">
                         </a>
                        <h5><a href="#0">{{ post.title }}</a></h5>
@@ -283,9 +280,9 @@
                     </article>
                     {% endif %}
 
-                    {% if post.id_num == '' %}
+                    {% if post.id_num == '003' %}
                     <article class="col-block popular__post">
-                        <a href="#0" class="popular__thumb">
+                        <a href="/standard" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/cookies-150.jpg' %}" alt="">
                         </a>
                         <h5><a href="#0">{{ post.title }}</a></h5>
@@ -296,12 +293,12 @@
                     </article>
                     {% endif %}
 
-                    {% if post.id_num == '' %}
+                    {% if post.id_num == '004' %}
                     <article class="col-block popular__post">
                         <a href="#0" class="popular__thumb">
-                            <img src="images/thumbs/small/beetle-150.jpg" alt="">
+                             <img src="{% static 'blog/images/thumbs/small/beetle-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">{{ post.title }}</a></h5>
+                        <h5><a href="/video">{{ post.title }}</a></h5>
                         <section class="popular__meta">
                                 <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
                             <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
@@ -383,9 +380,11 @@
                             {% endif %}
                             {% if post.id_num == '002' %}<li><a href="/gallery">{{ post.title }}</a></li>
                             {% endif %}
-                            {% if post.id_num == '' %}<li><a href="/video">{{ post.title }}</a></li>
+                            {% if post.id_num == '003' %}<li><a href="/video">{{ post.title }}</a></li>
                             {% endif %}
-                            {% if post.id_num == '' %}<li><a href="/standard">{{ post.title }}</a></li>
+                            {% if post.id_num == '004' %}<li><a href="/standard">{{ post.title }}</a></li>
+                            {% endif %}
+                            {% if post.id_num == '005' %}<li><a href="/category">{{ post.title }}</a></li>
                             {% endif %}
                             </ul>
                             {% endfor %}
