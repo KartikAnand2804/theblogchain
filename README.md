@@ -1,5 +1,5 @@
 # blogchain
-theblogchain.herokuapp.com
+https://theblogchain.herokuapp.com/
 
 Blogging website that talks about everything and in the future everything crypto.
 
