@@ -20,7 +20,7 @@ class Post(models.Model):
 	id_num = models.CharField(max_length=3, default='000')
 	tag = models.CharField(max_length=100, default='tag name')
 	title = models.CharField(max_length=100)
-	content = models.CharField(max_length=320)
+	content = models.TextField(max_length=320)
 	date_posted = models.DateTimeField(default=timezone.now)
 	author = models.CharField(max_length=100, default=User)
 
