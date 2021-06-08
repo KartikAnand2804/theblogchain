@@ -229,7 +229,10 @@
                 <div class="grid-sizer"></div>
 
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
-                        
+                    
+                    {% for post in posts %}
+                    {% if post.id_num == '001' %} 
+                    
                     <div class="entry__thumb">
                         <a href="/audio" class="entry__thumb-link">
                             <img src="{% static 'blog/images/thumbs/masonry/lamp-400.jpg' %}" 
@@ -237,8 +240,7 @@
                         </a>
                     </div>
                     
-                    {% for post in posts %}
-                    {% if post.id_num == '001' %}
+                    
                     <div class="entry__text">
                         <div class="entry__header">
                             
@@ -268,7 +270,7 @@
  
 
                            
-                <article class="masonry__brick entry format-quote" data-aos="fade-up">
+                <!-- <article class="masonry__brick entry format-quote" data-aos="fade-up">
                         
                     <div class="entry__thumb">
                         <blockquote>
@@ -280,9 +282,12 @@
                         </blockquote>
                     </div>   
     
-                </article> <!-- end article -->
+                </article> --> <!-- end article -->
 
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    {% for post in posts %}
+                    {% if post.id_num == '002' %}
                         
                     <div class="entry__thumb">
                         <a href="/gallery" class="entry__thumb-link">
@@ -291,8 +296,7 @@
                         </a>
                     </div>
 
-                    {% for post in posts %}
-                    {% if post.id_num == '002' %}
+                    
                     <div class="entry__text">
                         <div class="entry__header">
                             
@@ -322,6 +326,9 @@
 
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
 
+                    {% for post in posts %}
+                    {% if post.id_num == '003' %}
+
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
                             <img src="{% static 'blog/images/thumbs/masonry/cookies-400.jpg' %}" 
@@ -329,8 +336,7 @@
                         </a>
                     </div>
                     
-                    {% for post in posts %}
-                    {% if post.id_num == '003' %}
+                    
                     <div class="entry__text">
                         <div class="entry__header">
                             
@@ -361,6 +367,9 @@
 
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
 
+                    {% for post in posts %}
+                    {% if post.id_num == '004' %}
+
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
                             <img src="{% static 'blog/images/thumbs/masonry/wheel-400.jpg' %}" 
@@ -368,9 +377,6 @@
                         </a>
                     </div>
                     
-                    
-                    {% for post in posts %}
-                    {% if post.id_num == '004' %}
                     <div class="entry__text">
                         <div class="entry__header">
                             
@@ -398,6 +404,9 @@
                 </article> <!-- end article -->
 
                 <article class="masonry__brick entry format-video" data-aos="fade-up">
+
+                    {% for post in posts %}
+                    {% if post.id_num == '005' %}
                         
                     <div class="entry__thumb video-image">
                         <a href="https://player.vimeo.com/video/117310401?color=01aef0&title=0&byline=0&portrait=0" data-lity>
@@ -405,9 +414,7 @@
                                     alt="">
                         </a>
                     </div>
-                    
-                    {% for post in posts %}
-                    {% if post.id_num == '005' %}
+                                        
                     <div class="entry__text">
                         <div class="entry__header">
                             
@@ -434,6 +441,8 @@
 
 
                 <article class="masonry__brick entry format-gallery" data-aos="fade-up">
+                    {% for post in posts %}
+                    {% if post.id_num == '006' %}
                         
                     <div class="entry__thumb slider">
                         <div class="slider__slides">
@@ -452,8 +461,7 @@
                         </div>
                     </div>
         
-                    {% for post in posts %}
-                    {% if post.id_num == '' %}
+                    
                     <div class="entry__text">
                         <div class="entry__header">
                             
@@ -481,6 +489,9 @@
 
                 <article class="masonry__brick entry format-audio" data-aos="fade-up">
 
+                    {% for post in posts %}
+                    {% if post.id_num == '007' %}
+                    
                     <div class="entry__thumb">
                         <a href="single-audio.html" class="entry__thumb-link">
                             <img src="{% static 'blog/images/thumbs/masonry/guitarman-400.jpg' %}" 
@@ -491,8 +502,7 @@
                         </div>
                     </div>
 
-                    {% for post in posts %}
-                    {% if post.id_num == '' %}
+                    
                     <div class="entry__text">
                         <div class="entry__header">
                             
@@ -533,6 +543,9 @@
 
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
 
+                    {% for post in posts %}
+                    {% if post.id_num == '008' %}
+                    
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
                             <img src="{% static 'blog/images/thumbs/masonry/jump-400.jpg' %}" 
@@ -540,8 +553,7 @@
                         </a>
                     </div>
 
-                    {% for post in posts %}
-                    {% if post.id_num == '' %}
+                   
                     <div class="entry__text">
                         <div class="entry__header">
                             
@@ -568,6 +580,9 @@
                 </article> <!-- end article -->
 
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                    {% for post in posts %}
+                    {% if post.id_num == '009' %}
 
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
@@ -576,8 +591,7 @@
                         </a>
                     </div>
 
-                    {% for post in posts %}
-                    {% if post.id_num == '' %}
+                    
                     <div class="entry__text">
                         <div class="entry__header">
                             
@@ -604,6 +618,9 @@
                 </article> <!-- end article -->
 
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
+                    
+                    {% for post in posts %}
+                    {% if post.id_num == '010' %}
 
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
@@ -612,8 +629,7 @@
                         </a>
                     </div>
 
-                    {% for post in posts %}
-                    {% if post.id_num == '' %}
+                    
                     <div class="entry__text">
                         <div class="entry__header">
                             
@@ -641,6 +657,9 @@
 
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
 
+                    {% for post in posts %}
+                    {% if post.id_num == '011' %}
+
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
                             <img src="{% static 'blog/images/thumbs/masonry/sydney-400.jpg' %}" 
@@ -648,8 +667,7 @@
                         </a>
                     </div>
 
-                    {% for post in posts %}
-                    {% if post.id_num == '' %}
+                    
                     <div class="entry__text">
                         <div class="entry__header">
                             
