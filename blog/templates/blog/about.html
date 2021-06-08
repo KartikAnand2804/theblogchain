@@ -199,10 +199,10 @@
                     {% for post in posts %}
                     {% if post.id_num == '001' %}
                     <article class="col-block popular__post">
-                        <a href="/audio" class="popular__thumb">
+                        <a href="#0" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/wheel-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">{{ post.title }}</a></h5>
+                        <h5><a href="/audio">{{ post.title }}</a></h5>
                         <section class="popular__meta">
                                 <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
                             <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
@@ -212,10 +212,10 @@
 
                     {% if post.id_num == '002' %}
                     <article class="col-block popular__post">
-                        <a href="/gallery" class="popular__thumb">
+                        <a href="#0" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/shutterbug-150.jpg' %}" alt="">
                         </a>
-                       <h5><a href="#0">{{ post.title }}</a></h5>
+                       <h5><a href="/gallery">{{ post.title }}</a></h5>
                         <section class="popular__meta">
                                 <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
                             <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
@@ -225,10 +225,10 @@
 
                     {% if post.id_num == '003' %}
                     <article class="col-block popular__post">
-                        <a href="/standard" class="popular__thumb">
+                        <a href="#0" class="popular__thumb">
                             <img src="{% static 'blog/images/thumbs/small/cookies-150.jpg' %}" alt="">
                         </a>
-                        <h5><a href="#0">{{ post.title }}</a></h5>
+                        <h5><a href="/standard">{{ post.title }}</a></h5>
                         <section class="popular__meta">
                                 <span class="popular__author"><span>By</span> <a href="#0">{{ post.author }}</a></span>
                             <span class="popular__date"><span>on</span> <time datetime="2017-12-19">{{ post.date_posted }}</time></span>
