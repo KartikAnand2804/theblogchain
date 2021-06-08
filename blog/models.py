@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+
+
 
 # Create your models here.
 # general information 
@@ -55,7 +57,7 @@ class PostPage(models.Model):
 class Contact(models.Model):
 	name = models.CharField(max_length=100)
 	email = models.EmailField()
-	website = models.URLField()
+	phone = models.CharField(default=9999999999, max_length=10)
 	message = models.TextField()
 
 	def __str__(self):

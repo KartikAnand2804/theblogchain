@@ -1,1 +1,1 @@
-web: gunicorn blogchain.wsgi
+web: gunicorn theblogchain.wsgi

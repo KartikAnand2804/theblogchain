@@ -21,10 +21,10 @@ def contact(request):
 	if request.method == 'POST':	
 		name = request.POST["cName"]
 		email = request.POST["cEmail"]
-		website = request.POST["cWebsite"]
+		phone = request.POST["cNumber"]
 		message = request.POST["cMessage"]
 		
-		contact = Contact(name=name, email=email, website=website, message=message)
+		contact = Contact(name=name, email=email, phone=phone, message=message)
 		contact.save()
 		messages.success(request, 'Message sent!')
 
