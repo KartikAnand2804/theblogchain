@@ -1,20 +1,15 @@
-# [TheBlogChain][website]
+# 🔗 [TheBlogChain][website]
+[![Website](https://img.shields.io/website?label=TheBlogChain.com&style=for-the-badge&url=https://theblogchain.herokuapp.com/)][website]
 
-## Blogging website that talks about everything and in the future everything crypto.
+### Blogging website that talks about everything & in the future everything Crypto.
 
-### FOR RUNNING THE PROJECT ON LOCAL MACHINE:
+#### FOR RUNNING THE PROJECT ON LOCAL MACHINE:
 
-<br/>
+MODULES REQUIRED:        
 
-        MODULES REQUIRED:
-        
-        <br/>
-        
-        as mentioned in the requirements.txt file
-        
-        <br/>
-        
-        IF MODULES NOT PRESENT, RUN THESE COMMANDS ON TERMINAL:
+        As mentioned in the requirements.txt file        
+
+IF MODULES NOT PRESENT, RUN THESE COMMANDS ON TERMINAL:
 
         pip install django
         pip install django-heroku
@@ -24,54 +19,36 @@
 
 ---
 
-### TO RUN LOCAL SERVER:
+#### TO RUN LOCAL SERVER:
 
-<br/>
-
-        GO TO ROOT DIRECTORY USING TERMINAL AND RUN COMMAND:
-
-        <br/>
+GO TO ROOT DIRECTORY USING TERMINAL AND RUN COMMAND:
         
         python manage.py runserver
 
-### FOR THE MAIN PAGE FRONT END:
+#### FOR THE MAIN PAGE FRONT END:
 
-        To access the templates:
-
-        <br/>
+To access the templates:
 
         blog -> templates -> blog 
 
-        To access the images, CSS and the JS:
-
-        <br/>
+To access the images, CSS and the JS:
 
         blog -> static-> blog
 
 ---
         
-### FOR THE USER REGISTRATION PAGE:
+#### FOR THE USER REGISTRATION PAGE:
 
-<br/>
-
-        To access the templates:
-
-        <br/>
+To access the templates:
 
         users -> templates -> users 
 
-        To access the images, CSS and the JS:
-
-        <br/>
+To access the images, CSS and the JS:
 
         users -> static-> users
         
-### FOR THE ADMIN FILES:
-
-<br/>
+#### FOR THE ADMIN FILES:
 
         Go to the blogchain folder
-
----
 
 [website]: https://theblogchain.herokuapp.com/
