@@ -21,7 +21,7 @@ IF MODULES NOT PRESENT, RUN THESE COMMANDS ON TERMINAL:
 
 #### TO RUN LOCAL SERVER:
 
-GO TO ROOT DIRECTORY USING TERMINAL AND RUN COMMAND:
+GO TO ROOT DIRECTORY & RUN COMMAND:
         
         python manage.py runserver
 
@@ -31,7 +31,7 @@ To access the templates:
 
         blog -> templates -> blog 
 
-To access the images, CSS and the JS:
+To access the images, CSS & the JS:
 
         blog -> static-> blog
 
@@ -43,7 +43,7 @@ To access the templates:
 
         users -> templates -> users 
 
-To access the images, CSS and the JS:
+To access the images, CSS & the JS:
 
         users -> static-> users
         
