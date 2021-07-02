@@ -28,8 +28,8 @@
 
     <!-- favicons
     ================================================== -->
-    <link rel="shortcut icon" href="{% static 'blog/favicon.ico' %}" type="image/x-icon">
-    <link rel="icon" href="{% static 'blog/favicon.ico' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'blog/favicon.ico' %}" type="blog/favicon">
+    <link rel="icon" href="{% static 'blog/favicon.ico' %}" type="blog/favicon">
 </head>
 
 <body id="top">
@@ -40,7 +40,7 @@
             <div class="header__content row">
 
                 <div class="header__logo">
-                    <a class="logo" href="/">
+                    <a class="logo" href="/about">
                         <img src="{% static 'blog/images/logo.png' %}" alt="Homepage">
                     </a>
                 </div> <!-- end header__logo -->
@@ -77,8 +77,44 @@
                 </div>  <!-- end header__search -->
 
 
+                
+          <!--ticker widget-->
+          <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Quotes</span></a> by TradingView</div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+          {
+          "symbols": [
+            {
+              "proName": "FOREXCOM:NSXUSD",
+              "title": "Nasdaq 100"
+            },
+            {
+              "proName": "BITSTAMP:BTCUSD",
+              "title": "BTC/USD"
+            },
+            {
+              "proName": "BITSTAMP:ETHUSD",
+              "title": "ETH/USD"
+            },
+            {
+              "description": "TRON/USD",
+              "proName": "KRAKEN:TRXUSD"
+            },
+            {
+              "description": "DOGE/USD",
+              "proName": "BITFINEX:DOGEUSD"
+            }
+          ],
+          "colorTheme": "dark",
+          "isTransparent": true,
+          "showSymbolLogo": true,
+          "locale": "in"
+        }
+          </script>
+        </div>
+        <!-- ticker widget end -->
                 <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
-
                 <nav class="header__nav-wrap">
 
                     <h2 class="header__nav-heading h6">Site Navigation</h2>
@@ -125,7 +161,37 @@
     <!-- pageheader
     ================================================== -->
     <section class="s-pageheader s-pageheader--home">
+
+        <!-- TradingView Widget BEGIN -->
+        
+        <div class="tradingview-widget-container">
+          <div id="tradingview_9bf7c"></div>
+          <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/BTCUSD/?exchange=BITSTAMP" rel="noopener" target="_blank"><span class="blue-text">BTCUSD Chart</span></a> by TradingView</div>
+          <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+          <script type="text/javascript">
+          new TradingView.widget(
+          {
+          "width": 1150,
+          "height": 610,
+          // "autosize":true,
+          "symbol": "BITSTAMP:BTCUSD",
+          "interval": "D",
+          "timezone": "Etc/UTC",
+          "theme": "dark",
+          "style": "1",
+          "locale": "in",
+          "toolbar_bg": "#f1f3f6",
+          "enable_publishing": false,
+          "allow_symbol_change": true,
+          "container_id": "tradingview_9bf7c"
+        }
+          );
+          </script>
+        </div>
+        <!-- TradingView Widget END -->
+        
         <div class="pageheader-content row">
+
             <div class="col-full">
 
                 <div class="featured">
